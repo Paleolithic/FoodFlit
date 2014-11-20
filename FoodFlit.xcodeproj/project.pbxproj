@@ -14,7 +14,7 @@
 		3FAD93661A1C062700560974 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD93651A1C062700560974 /* main.m */; };
 		3FAD936A1A1C062700560974 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD93691A1C062700560974 /* AppDelegate.m */; };
 		3FAD936D1A1C062700560974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD936B1A1C062700560974 /* Main.storyboard */; };
-		3FAD93701A1C062700560974 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD936F1A1C062700560974 /* FirstViewController.m */; };
+		3FAD93701A1C062700560974 /* RandomizerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD936F1A1C062700560974 /* RandomizerVC.m */; };
 		3FAD93731A1C062700560974 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD93721A1C062700560974 /* SecondViewController.m */; };
 		3FAD93751A1C062700560974 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD93741A1C062700560974 /* Images.xcassets */; };
 		3FAD937C1A1C062700560974 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD937B1A1C062700560974 /* XCTest.framework */; };
@@ -46,8 +46,8 @@
 		3FAD93681A1C062700560974 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FAD93691A1C062700560974 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3FAD936C1A1C062700560974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3FAD936E1A1C062700560974 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		3FAD936F1A1C062700560974 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		3FAD936E1A1C062700560974 /* RandomizerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomizerVC.h; sourceTree = "<group>"; };
+		3FAD936F1A1C062700560974 /* RandomizerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RandomizerVC.m; sourceTree = "<group>"; };
 		3FAD93711A1C062700560974 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		3FAD93721A1C062700560974 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		3FAD93741A1C062700560974 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -82,6 +82,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F076CDF1A1EA1BB006A017D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FAD936E1A1C062700560974 /* RandomizerVC.h */,
+				3FAD936F1A1C062700560974 /* RandomizerVC.m */,
+				3FAD93711A1C062700560974 /* SecondViewController.h */,
+				3FAD93721A1C062700560974 /* SecondViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		3FAD934D1A1C062700560974 = {
 			isa = PBXGroup;
 			children = (
@@ -115,13 +126,10 @@
 		3FAD935F1A1C062700560974 /* FoodFlit */ = {
 			isa = PBXGroup;
 			children = (
+				3F076CDF1A1EA1BB006A017D /* View Controllers */,
 				3FAD93681A1C062700560974 /* AppDelegate.h */,
 				3FAD93691A1C062700560974 /* AppDelegate.m */,
 				3FAD936B1A1C062700560974 /* Main.storyboard */,
-				3FAD936E1A1C062700560974 /* FirstViewController.h */,
-				3FAD936F1A1C062700560974 /* FirstViewController.m */,
-				3FAD93711A1C062700560974 /* SecondViewController.h */,
-				3FAD93721A1C062700560974 /* SecondViewController.m */,
 				3FAD93741A1C062700560974 /* Images.xcassets */,
 				3FAD93601A1C062700560974 /* Supporting Files */,
 			);
@@ -256,7 +264,7 @@
 			files = (
 				3FAD93731A1C062700560974 /* SecondViewController.m in Sources */,
 				3FAD936A1A1C062700560974 /* AppDelegate.m in Sources */,
-				3FAD93701A1C062700560974 /* FirstViewController.m in Sources */,
+				3FAD93701A1C062700560974 /* RandomizerVC.m in Sources */,
 				3FAD93661A1C062700560974 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +470,7 @@
 				3FAD938D1A1C062700560974 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FAD938E1A1C062700560974 /* Build configuration list for PBXNativeTarget "FoodFlitTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +479,7 @@
 				3FAD93901A1C062700560974 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
