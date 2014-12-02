@@ -109,8 +109,8 @@
         yummlyCourse = @"Desserts";
     }
     
-    //STICKY TOFFEE OATMEAL
-    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipes?_app_id=%@&_app_key=%@&allowedCourse[]=course%5Ecourse-%@&allowedCuisine[]=cuisine%5Ecuisine-%@&maxResult=1", applicationID, applicationKey, yummlyCourse, self.dishType ]];
+    //Got cuisine down, now need to figure out course
+    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipes?_app_id=%@&_app_key=%@&allowedCourse=course%scourse-%@&allowedCuisine=cuisine%scuisine-%@&maxResult=1", applicationID, applicationKey, "%5E", [yummlyCourse lowercaseString], "%5E",[self.dishType lowercaseString]]];
     NSLog(@"URL: %@", url);
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request
