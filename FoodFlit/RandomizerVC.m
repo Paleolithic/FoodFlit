@@ -7,6 +7,8 @@
 //
 
 #import "RandomizerVC.h"
+#define applicationID @"29b9d634"
+#define applicationKey @"117626e0b87c1c939e82a5ed3102f6e8"
 
 @interface RandomizerVC (){
     NSArray *_pickerData;
@@ -20,14 +22,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.recipeButton.hidden=true;
+    [self.recipeButton setTitle:@"" forState:UIControlStateNormal];
     
     //Init picker data
     _pickerData = @[@[@"Breakfast", @"Lunch", @"Dinner", @"Dessert"],
-                    @[@"American", @"Italian", @"Spanish", @"Mediterranean", @"Mexican", @"Indian"],
+                    @[@"American", @"Italian", @"Asian", @"French", @"Barbecue", @"Chinese", @"Greek", @"German", @"Thai", @"Japanese", @"Spanish", @"Mediterranean", @"Mexican", @"Indian"],
                     @[@"Very Easy", @"Easy", @"Medium", @"Hard", @"Very Hard"]];
     
     self.randomPicker.dataSource = self;
     self.randomPicker.delegate = self;
+    self.mealType = @"Breakfast";
+    self.dishType = @"American";
+    self.difficulty = @"Very Easy";
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,10 +90,49 @@
     
 }
 
+
 - (IBAction)randomizeRecipe:(id)sender {
     NSLog(@"Randomize!\n");
     NSLog(@"mealType = %@\n", self.mealType);
     NSLog(@"mealType = %@\n", self.dishType);
     NSLog(@"mealType = %@\n", self.difficulty);
+    
+    //NSString *restCallString = [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipes?_app_id=%@&_app_key=%@&q=onion+soup&requirePictures=true", applicationID, applicationKey];
+    NSString *yummlyCourse;
+    if([self.mealType  isEqual: @"Breakfast"]){
+        yummlyCourse = @"Breakfast+and+Brunch";
+    } else if([self.mealType  isEqual: @"Lunch"]){
+        yummlyCourse = @"Lunch+and+Snacks";
+    } else if([self.mealType  isEqual: @"Dinner"]){
+        yummlyCourse = @"Main+Dishes";
+    } else if([self.mealType  isEqual: @"Dessert"]){
+        yummlyCourse = @"Desserts";
+    }
+    
+    //STICKY TOFFEE OATMEAL
+    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipes?_app_id=%@&_app_key=%@&allowedCourse[]=course%5Ecourse-%@&allowedCuisine[]=cuisine%5Ecuisine-%@&maxResult=1", applicationID, applicationKey, yummlyCourse, self.dishType ]];
+    NSLog(@"URL: %@", url);
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data, NSError *connectionError)
+     {
+         if (data.length > 0 && connectionError == nil)
+         {
+             NSDictionary *response= [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:0
+                                                                        error:NULL];
+             NSArray *matchesDict = [response valueForKey:@"matches"];
+             NSDictionary *recipe = [matchesDict objectAtIndex:0];
+             NSString *recipeTitle = [recipe valueForKey:@"recipeName"];
+             NSLog(@"Recipe Title: %@", recipeTitle);
+             [self.recipeButton setTitle:recipeTitle forState:UIControlStateNormal];
+             self.recipeButton.hidden=false;
+             
+         }
+     }];
 }
+
+
 @end

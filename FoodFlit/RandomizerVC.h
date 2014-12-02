@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface RandomizerVC : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
-@property (weak, nonatomic) IBOutlet UIPickerView *randomPicker;
 
+@property (weak, nonatomic) IBOutlet UIPickerView *randomPicker;
+@property (nonatomic, strong) IBOutlet UIButton *recipeButton;
 @property (weak, nonatomic) NSString *mealType;
 @property (weak, nonatomic) NSString *dishType;
 @property (weak, nonatomic) NSString *difficulty;
 
 - (IBAction)randomizeRecipe:(id)sender;
+
 @end
