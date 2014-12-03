@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 tjbanddom. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "FavoritesVC.h"
 
-@interface SecondViewController ()
+@interface FavoritesVC ()
 
 @end
 
-@implementation SecondViewController
+@implementation FavoritesVC
 
 - (void)viewDidLoad
 {

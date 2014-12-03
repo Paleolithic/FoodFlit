@@ -7,6 +7,8 @@
 //
 
 #import "RandomizerVC.h"
+#import "RecipeDetailVC.h"
+#include <stdlib.h>
 #define applicationID @"29b9d634"
 #define applicationKey @"117626e0b87c1c939e82a5ed3102f6e8"
 
@@ -26,7 +28,7 @@
     [self.recipeButton setTitle:@"" forState:UIControlStateNormal];
     
     //Init picker data
-    _pickerData = @[@[@"Breakfast", @"Lunch", @"Dinner", @"Dessert"],
+    _pickerData = @[@[@"Breakfast and Brunch", @"Lunch and Snacks", @"Main Dishes", @"Desserts"],
                     @[@"American", @"Italian", @"Asian", @"French", @"Barbecue", @"Chinese", @"Greek", @"German", @"Thai", @"Japanese", @"Spanish", @"Mediterranean", @"Mexican", @"Indian"],
                     @[@"Very Easy", @"Easy", @"Medium", @"Hard", @"Very Hard"]];
     
@@ -43,6 +45,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Picker View setup methods
 // The number of columns of data
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -54,8 +57,6 @@
 {
     return [_pickerData[component] count];
 }
-
-
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
     UILabel* tView = (UILabel*)view;
@@ -90,48 +91,89 @@
     
 }
 
-
+//Yummly API Call
+//Sets up variables with API response
 - (IBAction)randomizeRecipe:(id)sender {
     NSLog(@"Randomize!\n");
+    /*
     NSLog(@"mealType = %@\n", self.mealType);
     NSLog(@"mealType = %@\n", self.dishType);
     NSLog(@"mealType = %@\n", self.difficulty);
+    */
     
-    //NSString *restCallString = [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipes?_app_id=%@&_app_key=%@&q=onion+soup&requirePictures=true", applicationID, applicationKey];
+    //Start spinner
+    [self.spinner startAnimating];
+    
+    //Set NSString variable that yummly API understands for course
     NSString *yummlyCourse;
-    if([self.mealType  isEqual: @"Breakfast"]){
+    if([self.mealType  isEqual: @"Breakfast and Brunch"]){
         yummlyCourse = @"Breakfast+and+Brunch";
-    } else if([self.mealType  isEqual: @"Lunch"]){
+    } else if([self.mealType  isEqual: @"Lunch and Snacks"]){
         yummlyCourse = @"Lunch+and+Snacks";
-    } else if([self.mealType  isEqual: @"Dinner"]){
+    } else if([self.mealType  isEqual: @"Main Dishes"]){
         yummlyCourse = @"Main+Dishes";
-    } else if([self.mealType  isEqual: @"Dessert"]){
+    } else if([self.mealType  isEqual: @"Desserts"]){
         yummlyCourse = @"Desserts";
     }
     
+    //Set NSString variable that yummly API understands for max time (Our way of determining difficulty)
+    NSString *yummlyMaxTime;
+    if([self.difficulty isEqual: @"Very Easy"]){
+        yummlyMaxTime = @"1800";
+    } else if([self.difficulty isEqual: @"Easy"]){
+        yummlyMaxTime = @"3600";
+    } else if([self.difficulty isEqual: @"Medium"]){
+        yummlyMaxTime = @"5400";
+    } else if([self.difficulty isEqual: @"Hard"]){
+        yummlyMaxTime = @"7200";
+    } else if([self.difficulty isEqual: @"Very Hard"]){
+        yummlyMaxTime = @"9000";
+    }
+    
+    
     //Got cuisine down, now need to figure out course
-    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipes?_app_id=%@&_app_key=%@&allowedCourse=course%scourse-%@&allowedCuisine=cuisine%scuisine-%@&maxResult=1", applicationID, applicationKey, "%5E", [yummlyCourse lowercaseString], "%5E",[self.dishType lowercaseString]]];
+    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipes?_app_id=%@&_app_key=%@&allowedCourse=course%scourse-%@&allowedCuisine=cuisine%scuisine-%@&maxTotalTimeInSeconds=%@", applicationID, applicationKey, "%5E", yummlyCourse, "%5E",[self.dishType lowercaseString], yummlyMaxTime]];
     NSLog(@"URL: %@", url);
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data, NSError *connectionError)
-     {
-         if (data.length > 0 && connectionError == nil)
-         {
-             NSDictionary *response= [NSJSONSerialization JSONObjectWithData:data
-                                                                      options:0
-                                                                        error:NULL];
-             NSArray *matchesDict = [response valueForKey:@"matches"];
-             NSDictionary *recipe = [matchesDict objectAtIndex:0];
-             NSString *recipeTitle = [recipe valueForKey:@"recipeName"];
-             NSLog(@"Recipe Title: %@", recipeTitle);
-             [self.recipeButton setTitle:recipeTitle forState:UIControlStateNormal];
-             self.recipeButton.hidden=false;
-             
-         }
-     }];
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    //getting the data
+    NSData *newData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    //json parse
+    NSDictionary* json = nil;
+    if (newData) {
+        json = [NSJSONSerialization
+                JSONObjectWithData:newData
+                options:kNilOptions
+                error:nil];
+    }
+    
+    
+    //Accessing JSON content
+    //Get matches
+    NSArray *matchesDict = [json valueForKey:@"matches"];
+    
+    //Get random recipe from matches
+    int r = arc4random_uniform([matchesDict count]);
+    NSDictionary *recipe = [matchesDict objectAtIndex:r];
+    
+    //Grab that recipe's ID and title, set title to button text and make button visible
+    self.recipeID = [recipe valueForKey:@"id"];
+    self.recipeName = [recipe valueForKey:@"recipeName"];
+    [self.recipeButton setTitle:self.recipeName forState:UIControlStateNormal];
+    self.recipeButton.hidden=false;
+    [self.spinner stopAnimating];
+
+}
+
+//Need to figure out how to handle API call loading. Do we want to load a recipe each time randomize is called? That's sure to make a lot of API calls....
+//But if we load it once the button is clicked, the API call wont return information for the view to use in time...
+//I currently just have it wait until the recipe shit is properly loaded.......PROBABLY THE WORST WAY TO DO THIS
+- (IBAction)loadRecipe:(id)sender {
+    Recipe *recipe = [[Recipe alloc]initWithID:self.recipeID];
+    RecipeDetailVC *detailVC = [[RecipeDetailVC alloc] init];
+    detailVC.recipe = recipe;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 
