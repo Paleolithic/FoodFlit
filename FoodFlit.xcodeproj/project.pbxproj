@@ -17,13 +17,13 @@
 		3FAD936A1A1C062700560974 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD93691A1C062700560974 /* AppDelegate.m */; };
 		3FAD936D1A1C062700560974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD936B1A1C062700560974 /* Main.storyboard */; };
 		3FAD93701A1C062700560974 /* RandomizerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD936F1A1C062700560974 /* RandomizerVC.m */; };
-		3FAD93731A1C062700560974 /* FavoritesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD93721A1C062700560974 /* FavoritesVC.m */; };
 		3FAD93751A1C062700560974 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD93741A1C062700560974 /* Images.xcassets */; };
 		3FAD937C1A1C062700560974 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD937B1A1C062700560974 /* XCTest.framework */; };
 		3FAD937D1A1C062700560974 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD93591A1C062700560974 /* Foundation.framework */; };
 		3FAD937E1A1C062700560974 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD935D1A1C062700560974 /* UIKit.framework */; };
 		3FAD93861A1C062700560974 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD93841A1C062700560974 /* InfoPlist.strings */; };
 		3FAD93881A1C062700560974 /* FoodFlitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD93871A1C062700560974 /* FoodFlitTests.m */; };
+		3FE42F9E1A2F5C340096D5A7 /* FavoritesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,14 +54,14 @@
 		3FAD936C1A1C062700560974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FAD936E1A1C062700560974 /* RandomizerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomizerVC.h; sourceTree = "<group>"; };
 		3FAD936F1A1C062700560974 /* RandomizerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RandomizerVC.m; sourceTree = "<group>"; };
-		3FAD93711A1C062700560974 /* FavoritesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesVC.h; sourceTree = "<group>"; };
-		3FAD93721A1C062700560974 /* FavoritesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesVC.m; sourceTree = "<group>"; };
 		3FAD93741A1C062700560974 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3FAD937A1A1C062700560974 /* FoodFlitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodFlitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAD937B1A1C062700560974 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3FAD93831A1C062700560974 /* FoodFlitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodFlitTests-Info.plist"; sourceTree = "<group>"; };
 		3FAD93851A1C062700560974 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FAD93871A1C062700560974 /* FoodFlitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodFlitTests.m; sourceTree = "<group>"; };
+		3FE42F9C1A2F5C340096D5A7 /* FavoritesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesVC.h; sourceTree = "<group>"; };
+		3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +93,8 @@
 			children = (
 				3FAD936E1A1C062700560974 /* RandomizerVC.h */,
 				3FAD936F1A1C062700560974 /* RandomizerVC.m */,
-				3FAD93711A1C062700560974 /* FavoritesVC.h */,
-				3FAD93721A1C062700560974 /* FavoritesVC.m */,
+				3FE42F9C1A2F5C340096D5A7 /* FavoritesVC.h */,
+				3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */,
 				3F593D941A2E6F20002E7B7E /* RecipeDetailVC.h */,
 				3F593D951A2E6F20002E7B7E /* RecipeDetailVC.m */,
 			);
@@ -280,9 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FAD93731A1C062700560974 /* FavoritesVC.m in Sources */,
 				3F593D931A2E65F5002E7B7E /* Recipe.m in Sources */,
 				3FAD936A1A1C062700560974 /* AppDelegate.m in Sources */,
+				3FE42F9E1A2F5C340096D5A7 /* FavoritesVC.m in Sources */,
 				3FAD93701A1C062700560974 /* RandomizerVC.m in Sources */,
 				3FAD93661A1C062700560974 /* main.m in Sources */,
 				3F593D961A2E6F20002E7B7E /* RecipeDetailVC.m in Sources */,

@@ -95,11 +95,6 @@
 //Sets up variables with API response
 - (IBAction)randomizeRecipe:(id)sender {
     NSLog(@"Randomize!\n");
-    /*
-    NSLog(@"mealType = %@\n", self.mealType);
-    NSLog(@"mealType = %@\n", self.dishType);
-    NSLog(@"mealType = %@\n", self.difficulty);
-    */
     
     //Start spinner
     [self.spinner startAnimating];
@@ -130,8 +125,6 @@
         yummlyMaxTime = @"9000";
     }
     
-    
-    //Got cuisine down, now need to figure out course
     NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipes?_app_id=%@&_app_key=%@&allowedCourse=course%scourse-%@&allowedCuisine=cuisine%scuisine-%@&maxTotalTimeInSeconds=%@", applicationID, applicationKey, "%5E", yummlyCourse, "%5E",[self.dishType lowercaseString], yummlyMaxTime]];
     NSLog(@"URL: %@", url);
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -157,7 +150,7 @@
     int r = arc4random_uniform([matchesDict count]);
     NSDictionary *recipe = [matchesDict objectAtIndex:r];
     
-    //Grab that recipe's ID and title, set title to button text and make button visible
+    //Grab that recipe's ID and name, set name to button text and make button visible
     self.recipeID = [recipe valueForKey:@"id"];
     self.recipeName = [recipe valueForKey:@"recipeName"];
     [self.recipeButton setTitle:self.recipeName forState:UIControlStateNormal];
@@ -166,9 +159,7 @@
 
 }
 
-//Need to figure out how to handle API call loading. Do we want to load a recipe each time randomize is called? That's sure to make a lot of API calls....
-//But if we load it once the button is clicked, the API call wont return information for the view to use in time...
-//I currently just have it wait until the recipe shit is properly loaded.......PROBABLY THE WORST WAY TO DO THIS
+//Creates Recipe and RecipeDetailVC, loads up RecipeDetailVC
 - (IBAction)loadRecipe:(id)sender {
     Recipe *recipe = [[Recipe alloc]initWithID:self.recipeID];
     RecipeDetailVC *detailVC = [[RecipeDetailVC alloc] init];

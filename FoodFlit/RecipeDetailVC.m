@@ -52,7 +52,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"Ingredients count : %d", [self.recipe.recipeIngredients count]);
     return [self.recipe.recipeIngredients count];
 }
 
