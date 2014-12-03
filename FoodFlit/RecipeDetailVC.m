@@ -24,11 +24,23 @@
     self.navigationItem.title = self.recipe.recipeName;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    // Create and add test Label
+    /*
+     // Create and add test Label
     UILabel *scoreLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10.0, 70.0, 150.0, 43.0) ];
     scoreLabel.text = @"Test";
     [self.view addSubview:scoreLabel];
+    */
+
+    //Create and add Favorite button
+    UIButton *favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [favoriteButton setImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
+    [favoriteButton setImage:[UIImage imageNamed:@"favorite_hover.png"] forState:UIControlStateHighlighted];
+    [favoriteButton setImage:[UIImage imageNamed:@"favorite_click.png"] forState:UIControlStateSelected];
+    [favoriteButton setFrame:CGRectMake(screenWidth - 60, 150, 25, 25)];
+    [favoriteButton addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:favoriteButton];
     
+                                
     // Create and add UISegmentedControl
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Ingredients", @"Nutrition", @"Recipe", nil]];
     segmentedControl.frame = CGRectMake(35, 200, 250, 30);
@@ -87,6 +99,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void)click:(id)sender
+{
+    NSLog(@"%s",__FUNCTION__);
+    //Remove from favorites
+    if ([sender isSelected])
+    {
+        [sender setSelected:NO];
+    }
+    //Add to favorites
+    else
+    {
+        NSMutableArray *farray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]arrayForKey:@"favorites"]];
+        if (![farray containsObject:self.recipe.recipeID]) {
+            [farray addObject:self.recipe.recipeID];
+        }
+        //NSLog(@"%lu", (unsigned long)[farray count]);
+        [[NSUserDefaults standardUserDefaults] setObject:farray forKey:@"favorites"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"favoriteAdded" object:nil];
+    }
+}
 
 @end

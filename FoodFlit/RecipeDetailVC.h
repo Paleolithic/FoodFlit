@@ -12,5 +12,5 @@
 @interface RecipeDetailVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) Recipe *recipe;
-
+-(void)click:(id)sender;
 @end

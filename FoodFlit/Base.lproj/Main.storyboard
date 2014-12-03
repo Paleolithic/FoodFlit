@@ -111,7 +111,7 @@
         <scene sceneID="pcE-aq-erT">
             <objects>
                 <navigationController definesPresentationContext="YES" id="aE4-1l-vnb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Globe" id="Flc-iK-8av"/>
+                    <tabBarItem key="tabBarItem" title="Globe" image="globe.png" id="Flc-iK-8av"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yd4-2m-UKD">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -143,7 +143,7 @@
         <scene sceneID="OvQ-p0-v7j">
             <objects>
                 <navigationController definesPresentationContext="YES" id="0j4-nY-90c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shake" id="E1A-gU-Iia"/>
+                    <tabBarItem key="tabBarItem" title="Shake" image="shake.png" id="E1A-gU-Iia"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Ly-Xk-XXZ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -240,6 +240,10 @@
             <point key="canvasLocation" x="128" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="globe.png" width="32" height="32"/>
+        <image name="shake.png" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

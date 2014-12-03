@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.recipes = [NSMutableArray array];
+    NSArray *oldRecipes = [[NSUserDefaults standardUserDefaults] arrayForKey:@"favorites"];
+    /*for(NSData *data in oldParks)
+    {
+        Park* park = (Par
+    }*/
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

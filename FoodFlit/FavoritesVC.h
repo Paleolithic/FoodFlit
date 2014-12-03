@@ -10,4 +10,6 @@
 
 @interface FavoritesVC : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *recipes;
+
 @end
