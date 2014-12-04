@@ -1,8 +1,8 @@
 //
-//  RecipeDetailVC.m
+//  RecipeDetailVC2.m
 //  FoodFlit
 //
-//  Created by Student on 12/2/14.
+//  Created by Dominique Raymond on 12/3/14.
 //  Copyright (c) 2014 tjbanddom. All rights reserved.
 //
 
@@ -13,41 +13,25 @@
 @end
 
 @implementation RecipeDetailVC
-
-@synthesize recipe, pic, table, name;
+@synthesize recipe, name, pic, segment, tableView;
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //name.text = recipe.recipeName;
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
     
+    NSLog(@"%@\n",recipe.recipeIngredients);
     
+    name.text = recipe.recipeName;
+    NSURL *url = [NSURL URLWithString:recipe.recipeImage];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *img = [[UIImage alloc] initWithData:data];
+    pic.image = img;
+    
+    // Do any additional setup after loading the view.
 }
-/*
- - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
- return 1;
- }
- 
- - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
- return [self.recipe.recipeIngredients count];
- }
- 
- - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
- // The header for the section is the region name -- get this from the region at the section index.
- return @"";
- }
- 
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- static NSString *MyIdentifier = @"MyReuseIdentifier";
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
- if (cell == nil) {
- cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyReuseIdentifier"];
- }
- cell.textLabel.text = [self.recipe.recipeIngredients objectAtIndex:indexPath.row];
- return cell;
- }
-
- */
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -83,17 +67,65 @@
 -(IBAction)cooked:(id)sender{
     
 }
-- (IBAction)valueChanged:(UISegmentedControl *)segment {
-    
+- (IBAction)valueChanged:(UISegmentedControl *)seg {
+    [tableView reloadData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     if(segment.selectedSegmentIndex == 0) {
-        //action for the first button (Ingredients)
+        return 5;
         
     }else if(segment.selectedSegmentIndex == 1){
-        //action for the second button (Nutrition)
+        return recipe.recipeNutrition.count;
+    }else{
+        return recipe.recipeIngredients.count;
+    }
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipeCell" forIndexPath:indexPath];
+
+    
+    if(segment.selectedSegmentIndex == 0) {
+        
+    }else if(segment.selectedSegmentIndex == 1){
+        cell.textLabel.text = [recipe.recipeNutrition objectAtIndex:indexPath.row];
     }else if(segment.selectedSegmentIndex == 2){
-        //action for the third button (Recipe)
+        cell.textLabel.text = [recipe.recipeIngredients objectAtIndex:indexPath.row];
+    }
+    
+    
+    return cell;
+}
+
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(segment.selectedSegmentIndex == 2){
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipeCell" forIndexPath:indexPath];
+        if(cell.accessoryType == UITableViewCellAccessoryCheckmark){
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }else cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

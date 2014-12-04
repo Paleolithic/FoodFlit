@@ -7,7 +7,7 @@
 //
 
 #import "FavoritesVC.h"
-
+#import "Recipe.h"
 @interface FavoritesVC ()
 
 @end
@@ -27,9 +27,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+<<<<<<< HEAD
     recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favorites"]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"faveAdded" object:nil];
+=======
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"favoriteAdded" object:nil];
+    
+    self.recipes = [NSMutableArray array];
+    NSArray *oldRecipes = [[NSUserDefaults standardUserDefaults] arrayForKey:@"favorites"];
+    NSLog(@"Recipes: %@", oldRecipes);
+    for(NSString *recipeID in oldRecipes)
+    {
+        //NSLog(recipeID);
+        Recipe *recipe = [[Recipe alloc]initWithID:recipeID];
+        [self.recipes addObject:recipe];
+    }
+   
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+>>>>>>> FETCH_HEAD
     
 }
 
@@ -41,16 +58,27 @@
 
 #pragma mark - Table view data source
 
+<<<<<<< HEAD
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+=======
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+>>>>>>> FETCH_HEAD
     // Return the number of sections.
     return 1;
 }
 
+<<<<<<< HEAD
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     return [recipes count];
+=======
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    // Return the number of rows in the section.
+    return [self.recipes count];
+>>>>>>> FETCH_HEAD
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

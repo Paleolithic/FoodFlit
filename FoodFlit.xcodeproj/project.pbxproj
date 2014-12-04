@@ -24,7 +24,7 @@
 		3FAD93881A1C062700560974 /* FoodFlitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD93871A1C062700560974 /* FoodFlitTests.m */; };
 		3FC15E601A2F95C100AAEAEA /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC15E5F1A2F95C100AAEAEA /* globe.png */; };
 		3FE42F9E1A2F5C340096D5A7 /* FavoritesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */; };
-		960B80BC1A2FACE0005FB5E9 /* RecipeDetailVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC2.m */; };
+		960B80BC1A2FACE0005FB5E9 /* RecipeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC.m */; };
 		960B80C01A2FBD30005FB5E9 /* bookmarked.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80BD1A2FBD30005FB5E9 /* bookmarked.png */; };
 		960B80C11A2FBD30005FB5E9 /* dice.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80BE1A2FBD30005FB5E9 /* dice.png */; };
 		960B80C21A2FBD30005FB5E9 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80BF1A2FBD30005FB5E9 /* heart.png */; };
@@ -69,8 +69,8 @@
 		3FC15E5F1A2F95C100AAEAEA /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
 		3FE42F9C1A2F5C340096D5A7 /* FavoritesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesVC.h; sourceTree = "<group>"; };
 		3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesVC.m; sourceTree = "<group>"; };
-		960B80BA1A2FACE0005FB5E9 /* RecipeDetailVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailVC2.h; sourceTree = "<group>"; };
-		960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailVC2.m; sourceTree = "<group>"; };
+		960B80BA1A2FACE0005FB5E9 /* RecipeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailVC.h; sourceTree = "<group>"; };
+		960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailVC.m; sourceTree = "<group>"; };
 		960B80BD1A2FBD30005FB5E9 /* bookmarked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarked.png; sourceTree = "<group>"; };
 		960B80BE1A2FBD30005FB5E9 /* dice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice.png; sourceTree = "<group>"; };
 		960B80BF1A2FBD30005FB5E9 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
@@ -112,8 +112,8 @@
 				3FAD936F1A1C062700560974 /* RandomizerVC.m */,
 				3FE42F9C1A2F5C340096D5A7 /* FavoritesVC.h */,
 				3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */,
-				960B80BA1A2FACE0005FB5E9 /* RecipeDetailVC2.h */,
-				960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC2.m */,
+				960B80BA1A2FACE0005FB5E9 /* RecipeDetailVC.h */,
+				960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 				3FE42F9E1A2F5C340096D5A7 /* FavoritesVC.m in Sources */,
 				3FAD93701A1C062700560974 /* RandomizerVC.m in Sources */,
 				3FAD93661A1C062700560974 /* main.m in Sources */,
-				960B80BC1A2FACE0005FB5E9 /* RecipeDetailVC2.m in Sources */,
+				960B80BC1A2FACE0005FB5E9 /* RecipeDetailVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
