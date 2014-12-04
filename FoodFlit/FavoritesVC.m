@@ -27,11 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-<<<<<<< HEAD
     recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favorites"]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"faveAdded" object:nil];
-=======
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"favoriteAdded" object:nil];
     
     self.recipes = [NSMutableArray array];
@@ -46,7 +44,6 @@
    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
->>>>>>> FETCH_HEAD
     
 }
 
@@ -58,27 +55,16 @@
 
 #pragma mark - Table view data source
 
-<<<<<<< HEAD
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-=======
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
->>>>>>> FETCH_HEAD
     // Return the number of sections.
     return 1;
 }
 
-<<<<<<< HEAD
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     return [recipes count];
-=======
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    // Return the number of rows in the section.
-    return [self.recipes count];
->>>>>>> FETCH_HEAD
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,7 +87,7 @@
     NSArray *a = (NSArray *)[recipes objectAtIndex:indexPath.row];
     Recipe *recipe = [NSKeyedUnarchiver unarchiveObjectWithData:[a objectAtIndex:1]];
     
-    RecipeDetailVC2 *detailVC = [[RecipeDetailVC2 alloc] init];
+    RecipeDetailVC *detailVC = [[RecipeDetailVC alloc] init];
     detailVC.recipe = recipe;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
