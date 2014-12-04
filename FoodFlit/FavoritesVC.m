@@ -7,7 +7,7 @@
 //
 
 #import "FavoritesVC.h"
-
+#import "Recipe.h"
 @interface FavoritesVC ()
 
 @end
@@ -17,12 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"favoriteAdded" object:nil];
+    
     self.recipes = [NSMutableArray array];
     NSArray *oldRecipes = [[NSUserDefaults standardUserDefaults] arrayForKey:@"favorites"];
-    /*for(NSData *data in oldParks)
+    NSLog(@"Recipes: %@", oldRecipes);
+    for(NSString *recipeID in oldRecipes)
     {
-        Park* park = (Par
-    }*/
+        //NSLog(recipeID);
+        Recipe *recipe = [[Recipe alloc]initWithID:recipeID];
+        [self.recipes addObject:recipe];
+    }
+   
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -38,15 +44,14 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return [self.recipes count];
 }
 
 /*
