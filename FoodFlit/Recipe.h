@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Recipe : NSObject{
+@interface Recipe : NSObject<NSCoding>{
    
     NSString *recipeImage;
     NSArray  *recipeIngredients;
@@ -23,5 +23,8 @@
 
 +(id)recipe;
 -(id)initWithID:(NSString *)r_ID;
+
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+-(id)initWithCoder:(NSCoder *)aDecoder;
 
 @end

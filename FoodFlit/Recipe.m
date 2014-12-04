@@ -71,4 +71,25 @@
     
     return recipe;
 }
+
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:recipeID forKey:@"ID"];
+    [aCoder encodeObject:recipeName forKey:@"name"];
+    [aCoder encodeObject:recipeImage forKey:@"image"];
+    [aCoder encodeObject:recipeIngredients forKey:@"ingredients"];
+    [aCoder encodeObject:recipeNutrition forKey:@"nutrition"];
+
+    
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    if(self = [super init]){
+        self.recipeID = [aDecoder decodeObjectForKey:@"ID"];
+        self.recipeName = [aDecoder decodeObjectForKey:@"name"];
+        self.recipeNutrition = [aDecoder decodeObjectForKey:@"nutrition"];
+        self.recipeImage = [aDecoder decodeObjectForKey:@"image"];
+        self.recipeIngredients = [aDecoder decodeObjectForKey:@"ingredients"];
+    }
+    return self;
+}
 @end

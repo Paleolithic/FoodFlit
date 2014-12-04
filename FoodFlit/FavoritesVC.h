@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Recipe.h"
+#import "RecipeDetailVC2.h"
 
 @interface FavoritesVC : UITableViewController
 
