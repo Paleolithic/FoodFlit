@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--FavoritesVC-->
         <scene sceneID="pc6-7m-bbj">
             <objects>
                 <tableViewController id="TrF-yY-g4f" customClass="FavoritesVC" sceneMemberID="viewController">
@@ -25,7 +25,18 @@
                             <outlet property="delegate" destination="TrF-yY-g4f" id="FWO-bU-C4X"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="KKP-SX-9gi"/>
+                    <navigationItem key="navigationItem" id="KKP-SX-9gi">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="265" verticalHuggingPriority="264" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="QAI-9m-IgB">
+                            <rect key="frame" x="8" y="7" width="304" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
+                            <segments>
+                                <segment title="" image="heart.png"/>
+                                <segment title="" image="save.png"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Q6-gO-7Qs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,7 +61,6 @@
         <!--Recipe DetailVC2-->
         <scene sceneID="KSf-Sf-Z6z">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U4O-il-eKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Details" id="6P5-xh-RqD" customClass="RecipeDetailVC2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z83-YW-KDP"/>
@@ -81,10 +91,10 @@
                                             </connections>
                                         </segmentedControl>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp5-bc-TUr">
-                                            <rect key="frame" x="259" y="2" width="27" height="27"/>
+                                            <rect key="frame" x="261" y="4" width="24" height="24"/>
                                             <color key="tintColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <size key="titleShadowOffset" width="1" height="1"/>
-                                            <state key="normal" image="bookmarked.png"/>
+                                            <state key="normal" image="save.png"/>
                                             <connections>
                                                 <action selector="save:" destination="6P5-xh-RqD" eventType="touchUpInside" id="zKn-Oe-WBR"/>
                                             </connections>
@@ -148,6 +158,7 @@
                         <outlet property="tableView" destination="usg-CF-04k" id="zHD-Z1-mo0"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4O-il-eKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2155" y="-445"/>
         </scene>
@@ -168,21 +179,35 @@
             </objects>
             <point key="canvasLocation" x="739" y="-183"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Timeline-->
         <scene sceneID="uph-xR-Ckn">
             <objects>
                 <tableViewController id="n2H-6K-F0y" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vgW-zS-8Xq">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" rowHeight="84" sectionHeaderHeight="10" sectionFooterHeight="10" id="vgW-zS-8Xq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Zv5-68-eZY">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="acI-uh-dKP" detailTextLabel="nfl-eq-MIK" rowHeight="84" style="IBUITableViewCellStyleValue1" id="Zv5-68-eZY">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zv5-68-eZY" id="HLA-r3-zqx">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="Zv5-68-eZY" id="HLA-r3-zqx">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="acI-uh-dKP">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nfl-eq-MIK">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -191,56 +216,52 @@
                             <outlet property="delegate" destination="n2H-6K-F0y" id="dUS-g0-SCR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Osg-jk-AEP"/>
+                    <navigationItem key="navigationItem" title="Timeline" id="Osg-jk-AEP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rT-OQ-M24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1275" y="532"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="FIB-dZ-e74">
-            <objects>
-                <tableViewController id="vEa-BF-VKD" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bHz-hf-N0n">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5iX-Zy-W49">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5iX-Zy-W49" id="3G3-TV-gHC">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="vEa-BF-VKD" id="wcF-X6-PLy"/>
-                            <outlet property="delegate" destination="vEa-BF-VKD" id="x6y-3Y-wz9"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="jnr-V4-tuP"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0A1-P2-HO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1275" y="1248"/>
-        </scene>
         <!--Globe-->
         <scene sceneID="pcE-aq-erT">
             <objects>
-                <navigationController definesPresentationContext="YES" id="aE4-1l-vnb" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="aE4-1l-vnb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Globe" image="globe.png" id="Flc-iK-8av"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yd4-2m-UKD">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vEa-BF-VKD" kind="relationship" relationship="rootViewController" id="jC0-gu-xd0"/>
+                        <segue destination="CaG-pw-Aa8" kind="relationship" relationship="rootViewController" id="hEa-ao-ZlQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7R-mF-6K8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="739" y="1248"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LpJ-a1-bgN">
+            <objects>
+                <viewController id="CaG-pw-Aa8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Yj-bC-uiG"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZW9-AK-p0r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t5X-Nu-bY5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C4h-Bq-JJr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3ww-AL-CKq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RLZ-hR-kjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1275" y="1248"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="gng-wC-42q">
@@ -274,7 +295,7 @@
             </objects>
             <point key="canvasLocation" x="739" y="-889"/>
         </scene>
-        <!--RandomizerVC-->
+        <!--FoodClit-->
         <scene sceneID="YBA-9v-seY">
             <objects>
                 <viewController id="0vG-ue-Fbp" customClass="RandomizerVC" sceneMemberID="viewController">
@@ -295,11 +316,11 @@
                                 </userDefinedRuntimeAttributes>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCa-Zm-fgI">
-                                <rect key="frame" x="61" y="361" width="198" height="30"/>
-                                <color key="backgroundColor" red="0.13333334028720856" green="0.46274513006210327" blue="0.87450987100601196" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="RANDOMIZE">
+                                <rect key="frame" x="0.0" y="401" width="320" height="49"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Randomize">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" red="0.12941177189350128" green="0.46666669845581055" blue="0.89019614458084106" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -311,22 +332,25 @@
                                     <action selector="randomizeRecipe:" destination="0vG-ue-Fbp" eventType="touchUpInside" id="dt2-FK-VRP"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-Ux-3F9">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soX-i6-BHd">
-                                <rect key="frame" x="16" y="306" width="288" height="30"/>
+                                <rect key="frame" x="0.0" y="332" width="320" height="49"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Recipe Name">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="loadRecipe:" destination="0vG-ue-Fbp" eventType="touchUpInside" id="f9e-r7-RCi"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-Ux-3F9">
-                                <rect key="frame" x="150" y="274" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3hP-zK-YG2"/>
+                    <navigationItem key="navigationItem" title="FoodClit" id="3hP-zK-YG2"/>
                     <connections>
                         <outlet property="randomPicker" destination="hTa-qS-CjV" id="XA2-V9-Lir"/>
                         <outlet property="recipeButton" destination="soX-i6-BHd" id="dpz-Bl-hmw"/>
@@ -360,11 +384,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmarked.png" width="30" height="30"/>
         <image name="cooked.png" width="50" height="50"/>
         <image name="dice.png" width="30" height="30"/>
         <image name="globe.png" width="30" height="30"/>
         <image name="heart.png" width="30" height="30"/>
+        <image name="save.png" width="26" height="26"/>
         <image name="timeline.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

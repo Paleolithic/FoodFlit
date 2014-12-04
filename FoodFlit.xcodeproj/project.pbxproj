@@ -30,6 +30,8 @@
 		960B80C21A2FBD30005FB5E9 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80BF1A2FBD30005FB5E9 /* heart.png */; };
 		960B80C51A2FBEFD005FB5E9 /* timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80C31A2FBEFD005FB5E9 /* timeline.png */; };
 		960B80C61A2FBEFD005FB5E9 /* cooked.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80C41A2FBEFD005FB5E9 /* cooked.png */; };
+		960B80C81A30269F005FB5E9 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80C71A30269F005FB5E9 /* save.png */; };
+		960B80CA1A302E59005FB5E9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 960B80C91A302E59005FB5E9 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		960B80BF1A2FBD30005FB5E9 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		960B80C31A2FBEFD005FB5E9 /* timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline.png; sourceTree = "<group>"; };
 		960B80C41A2FBEFD005FB5E9 /* cooked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cooked.png; sourceTree = "<group>"; };
+		960B80C71A30269F005FB5E9 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+		960B80C91A302E59005FB5E9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960B80CA1A302E59005FB5E9 /* MapKit.framework in Frameworks */,
 				3FAD935C1A1C062700560974 /* CoreGraphics.framework in Frameworks */,
 				3FAD935E1A1C062700560974 /* UIKit.framework in Frameworks */,
 				3FAD935A1A1C062700560974 /* Foundation.framework in Frameworks */,
@@ -144,6 +149,7 @@
 		3FAD93581A1C062700560974 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				960B80C91A302E59005FB5E9 /* MapKit.framework */,
 				3FAD93591A1C062700560974 /* Foundation.framework */,
 				3FAD935B1A1C062700560974 /* CoreGraphics.framework */,
 				3FAD935D1A1C062700560974 /* UIKit.framework */,
@@ -199,6 +205,7 @@
 		3FC15E541A2F8C6E00AAEAEA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				960B80C71A30269F005FB5E9 /* save.png */,
 				960B80C31A2FBEFD005FB5E9 /* timeline.png */,
 				960B80C41A2FBEFD005FB5E9 /* cooked.png */,
 				960B80BD1A2FBD30005FB5E9 /* bookmarked.png */,
@@ -291,6 +298,7 @@
 				960B80C01A2FBD30005FB5E9 /* bookmarked.png in Resources */,
 				3FAD93641A1C062700560974 /* InfoPlist.strings in Resources */,
 				960B80C11A2FBD30005FB5E9 /* dice.png in Resources */,
+				960B80C81A30269F005FB5E9 /* save.png in Resources */,
 				3FC15E601A2F95C100AAEAEA /* globe.png in Resources */,
 				960B80C51A2FBEFD005FB5E9 /* timeline.png in Resources */,
 				3FAD936D1A1C062700560974 /* Main.storyboard in Resources */,
