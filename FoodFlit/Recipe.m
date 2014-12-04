@@ -79,8 +79,6 @@
     [aCoder encodeObject:recipeImage forKey:@"image"];
     [aCoder encodeObject:recipeIngredients forKey:@"ingredients"];
     [aCoder encodeObject:recipeNutrition forKey:@"nutrition"];
-
-    
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder{

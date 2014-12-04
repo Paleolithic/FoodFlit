@@ -27,16 +27,24 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="KKP-SX-9gi">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="265" verticalHuggingPriority="264" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="QAI-9m-IgB">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="265" verticalHuggingPriority="264" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="QAI-9m-IgB">
                             <rect key="frame" x="8" y="7" width="304" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
                             <segments>
-                                <segment title="" image="heart.png"/>
+                                <segment title="" image="heart_selected.png">
+                                    <size key="contentOffset" width="0.0" height="-1"/>
+                                </segment>
                                 <segment title="" image="save.png"/>
                             </segments>
+                            <connections>
+                                <action selector="switchLists:" destination="TrF-yY-g4f" eventType="valueChanged" id="ZAN-Uh-ZxD"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segment" destination="QAI-9m-IgB" id="nI0-Iy-oBe"/>
+                        <outlet property="tableView" destination="Hs9-FY-XkT" id="C4E-fH-Qmf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Q6-gO-7Qs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,7 +99,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp5-bc-TUr">
-                                            <rect key="frame" x="261" y="4" width="24" height="24"/>
+                                            <rect key="frame" x="261" y="5" width="23" height="23"/>
                                             <color key="tintColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <size key="titleShadowOffset" width="1" height="1"/>
                                             <state key="normal" image="save.png"/>
@@ -116,7 +124,7 @@
                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="Button" image="heart.png"/>
-                                <state key="selected" image="heart.png"/>
+                                <state key="selected" image="heart_selected.png"/>
                                 <connections>
                                     <action selector="favorite:" destination="6P5-xh-RqD" eventType="touchUpInside" id="J91-HA-8wA"/>
                                 </connections>
@@ -387,7 +395,8 @@
         <image name="cooked.png" width="50" height="50"/>
         <image name="dice.png" width="30" height="30"/>
         <image name="globe.png" width="30" height="30"/>
-        <image name="heart.png" width="30" height="30"/>
+        <image name="heart.png" width="32" height="32"/>
+        <image name="heart_selected.png" width="32" height="32"/>
         <image name="save.png" width="26" height="26"/>
         <image name="timeline.png" width="30" height="30"/>
     </resources>

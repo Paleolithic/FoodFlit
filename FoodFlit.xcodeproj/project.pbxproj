@@ -32,6 +32,7 @@
 		960B80C61A2FBEFD005FB5E9 /* cooked.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80C41A2FBEFD005FB5E9 /* cooked.png */; };
 		960B80C81A30269F005FB5E9 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80C71A30269F005FB5E9 /* save.png */; };
 		960B80CA1A302E59005FB5E9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 960B80C91A302E59005FB5E9 /* MapKit.framework */; };
+		960B80CC1A30DA2F005FB5E9 /* heart_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80CB1A30DA2F005FB5E9 /* heart_selected.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		960B80C41A2FBEFD005FB5E9 /* cooked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cooked.png; sourceTree = "<group>"; };
 		960B80C71A30269F005FB5E9 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		960B80C91A302E59005FB5E9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		960B80CB1A30DA2F005FB5E9 /* heart_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_selected.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				3FAD93681A1C062700560974 /* AppDelegate.h */,
 				3FAD93691A1C062700560974 /* AppDelegate.m */,
 				3FAD936B1A1C062700560974 /* Main.storyboard */,
+				960B80CB1A30DA2F005FB5E9 /* heart_selected.png */,
 				3FAD93741A1C062700560974 /* Images.xcassets */,
 				3FAD93601A1C062700560974 /* Supporting Files */,
 			);
@@ -296,6 +299,7 @@
 				960B80C61A2FBEFD005FB5E9 /* cooked.png in Resources */,
 				960B80C21A2FBD30005FB5E9 /* heart.png in Resources */,
 				960B80C01A2FBD30005FB5E9 /* bookmarked.png in Resources */,
+				960B80CC1A30DA2F005FB5E9 /* heart_selected.png in Resources */,
 				3FAD93641A1C062700560974 /* InfoPlist.strings in Resources */,
 				960B80C11A2FBD30005FB5E9 /* dice.png in Resources */,
 				960B80C81A30269F005FB5E9 /* save.png in Resources */,
