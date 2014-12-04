@@ -46,22 +46,23 @@
                 error:nil];
     }
     
+    //NSLog(@"Response : %@", json);
+    
     //Name set
-    NSLog(@"Response : %@", json);
     self.recipeName = [json valueForKey:@"name"];
     
     //Image url set
     NSArray *images = [json valueForKey:@"images"];
-    NSLog(@"Recipe Images: %@", images);
     NSDictionary *imagesDict = [images objectAtIndex: 0];
     self.recipeImage = [imagesDict valueForKey:@"hostedLargeUrl"];
     
     //Ingredients array set
     self.recipeIngredients = [json valueForKey:@"ingredientLines"];
     
+    
     //Nutrition array set
     self.recipeNutrition   = [json valueForKey:@"nutritionEstimates"];
-    
+    NSLog(@"Recipe Nutrition: %@", self.recipeNutrition);
     
     return self;
 }

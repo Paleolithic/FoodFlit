@@ -22,7 +22,7 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     
-    NSLog(@"%@\n",recipe.recipeIngredients);
+    //NSLog(@"%@\n",recipe.recipeIngredients);
     
     name.text = recipe.recipeName;
     NSURL *url = [NSURL URLWithString:recipe.recipeImage];
@@ -72,6 +72,7 @@
         return 5;
         
     }else if(segment.selectedSegmentIndex == 1){
+        //return 5;
         return recipe.recipeNutrition.count;
     }else{
         return recipe.recipeIngredients.count;
@@ -87,7 +88,21 @@
     if(segment.selectedSegmentIndex == 0) {
         
     }else if(segment.selectedSegmentIndex == 1){
-        cell.textLabel.text = [recipe.recipeNutrition objectAtIndex:indexPath.row];
+       // NSLog(@"recipeNutrition count: %d", recipe.recipeNutrition.count);
+        NSDictionary *nutDict = [recipe.recipeNutrition objectAtIndex:indexPath.row];
+        NSDictionary *unitDict = [nutDict valueForKey:@"unit"];
+        NSLog(@"unitDict : %@", unitDict);
+        NSLog(@"nutDict : %@", nutDict);
+        NSString *nutDesc = [unitDict valueForKey:@"plural"];
+        NSLog(@"nutDesc : %@", nutDesc);
+        NSString *nutVal  = [nutDict valueForKey:@"value"];
+        NSLog(@"nutVal : %@", nutVal);
+        NSString *nutUnit = [unitDict valueForKey:@"abbreviation"];
+         NSLog(@"nutUnit : %@", nutUnit);
+        NSString *labelText = [NSString stringWithFormat:@"%@: %@ %@", nutDesc, nutVal, nutUnit];
+        NSLog(@"Label Text : %@", labelText);
+        cell.textLabel.text = labelText;
+        //cell.textLabel.text = [recipe.recipeNutrition objectAtIndex:indexPath.row];
     }else if(segment.selectedSegmentIndex == 2){
         cell.textLabel.text = [recipe.recipeIngredients objectAtIndex:indexPath.row];
     }
