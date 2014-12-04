@@ -162,7 +162,7 @@
 //Creates Recipe and RecipeDetailVC, loads up RecipeDetailVC
 - (IBAction)loadRecipe:(id)sender {
     Recipe *recipe = [[Recipe alloc]initWithID:self.recipeID];
-    RecipeDetailVC *detailVC = [[RecipeDetailVC alloc] init];
+    RecipeDetailVC2 *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Details"];
     detailVC.recipe = recipe;
     [self.navigationController pushViewController:detailVC animated:YES];
 }

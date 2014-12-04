@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Recipe.h"
+#import "RecipeDetailVC2.h"
 
 
 @interface RandomizerVC : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>

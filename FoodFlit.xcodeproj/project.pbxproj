@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F593D931A2E65F5002E7B7E /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593D921A2E65F5002E7B7E /* Recipe.m */; };
-		3F593D961A2E6F20002E7B7E /* RecipeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593D951A2E6F20002E7B7E /* RecipeDetailVC.m */; };
 		3FAD935A1A1C062700560974 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD93591A1C062700560974 /* Foundation.framework */; };
 		3FAD935C1A1C062700560974 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD935B1A1C062700560974 /* CoreGraphics.framework */; };
 		3FAD935E1A1C062700560974 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD935D1A1C062700560974 /* UIKit.framework */; };
@@ -23,12 +22,14 @@
 		3FAD937E1A1C062700560974 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD935D1A1C062700560974 /* UIKit.framework */; };
 		3FAD93861A1C062700560974 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD93841A1C062700560974 /* InfoPlist.strings */; };
 		3FAD93881A1C062700560974 /* FoodFlitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD93871A1C062700560974 /* FoodFlitTests.m */; };
-		3FC15E531A2F8BBC00AAEAEA /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC15E521A2F8BBC00AAEAEA /* favorite.png */; };
-		3FC15E561A2F918D00AAEAEA /* favorite_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC15E551A2F918D00AAEAEA /* favorite_hover.png */; };
-		3FC15E581A2F91BA00AAEAEA /* favorite_click.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC15E571A2F91BA00AAEAEA /* favorite_click.png */; };
-		3FC15E5E1A2F959700AAEAEA /* shake.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC15E5D1A2F959700AAEAEA /* shake.png */; };
 		3FC15E601A2F95C100AAEAEA /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC15E5F1A2F95C100AAEAEA /* globe.png */; };
 		3FE42F9E1A2F5C340096D5A7 /* FavoritesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */; };
+		960B80BC1A2FACE0005FB5E9 /* RecipeDetailVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC2.m */; };
+		960B80C01A2FBD30005FB5E9 /* bookmarked.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80BD1A2FBD30005FB5E9 /* bookmarked.png */; };
+		960B80C11A2FBD30005FB5E9 /* dice.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80BE1A2FBD30005FB5E9 /* dice.png */; };
+		960B80C21A2FBD30005FB5E9 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80BF1A2FBD30005FB5E9 /* heart.png */; };
+		960B80C51A2FBEFD005FB5E9 /* timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80C31A2FBEFD005FB5E9 /* timeline.png */; };
+		960B80C61A2FBEFD005FB5E9 /* cooked.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80C41A2FBEFD005FB5E9 /* cooked.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +45,6 @@
 /* Begin PBXFileReference section */
 		3F593D911A2E65F5002E7B7E /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
 		3F593D921A2E65F5002E7B7E /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
-		3F593D941A2E6F20002E7B7E /* RecipeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailVC.h; sourceTree = "<group>"; };
-		3F593D951A2E6F20002E7B7E /* RecipeDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailVC.m; sourceTree = "<group>"; };
 		3FAD93561A1C062700560974 /* FoodFlit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFlit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAD93591A1C062700560974 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FAD935B1A1C062700560974 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,13 +64,16 @@
 		3FAD93831A1C062700560974 /* FoodFlitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodFlitTests-Info.plist"; sourceTree = "<group>"; };
 		3FAD93851A1C062700560974 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FAD93871A1C062700560974 /* FoodFlitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodFlitTests.m; sourceTree = "<group>"; };
-		3FC15E521A2F8BBC00AAEAEA /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
-		3FC15E551A2F918D00AAEAEA /* favorite_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_hover.png; sourceTree = "<group>"; };
-		3FC15E571A2F91BA00AAEAEA /* favorite_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_click.png; sourceTree = "<group>"; };
-		3FC15E5D1A2F959700AAEAEA /* shake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shake.png; sourceTree = "<group>"; };
 		3FC15E5F1A2F95C100AAEAEA /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
 		3FE42F9C1A2F5C340096D5A7 /* FavoritesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesVC.h; sourceTree = "<group>"; };
 		3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesVC.m; sourceTree = "<group>"; };
+		960B80BA1A2FACE0005FB5E9 /* RecipeDetailVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailVC2.h; sourceTree = "<group>"; };
+		960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailVC2.m; sourceTree = "<group>"; };
+		960B80BD1A2FBD30005FB5E9 /* bookmarked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarked.png; sourceTree = "<group>"; };
+		960B80BE1A2FBD30005FB5E9 /* dice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice.png; sourceTree = "<group>"; };
+		960B80BF1A2FBD30005FB5E9 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		960B80C31A2FBEFD005FB5E9 /* timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline.png; sourceTree = "<group>"; };
+		960B80C41A2FBEFD005FB5E9 /* cooked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cooked.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +107,8 @@
 				3FAD936F1A1C062700560974 /* RandomizerVC.m */,
 				3FE42F9C1A2F5C340096D5A7 /* FavoritesVC.h */,
 				3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */,
-				3F593D941A2E6F20002E7B7E /* RecipeDetailVC.h */,
-				3F593D951A2E6F20002E7B7E /* RecipeDetailVC.m */,
+				960B80BA1A2FACE0005FB5E9 /* RecipeDetailVC2.h */,
+				960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC2.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -197,11 +199,12 @@
 		3FC15E541A2F8C6E00AAEAEA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				960B80C31A2FBEFD005FB5E9 /* timeline.png */,
+				960B80C41A2FBEFD005FB5E9 /* cooked.png */,
+				960B80BD1A2FBD30005FB5E9 /* bookmarked.png */,
+				960B80BE1A2FBD30005FB5E9 /* dice.png */,
+				960B80BF1A2FBD30005FB5E9 /* heart.png */,
 				3FC15E5F1A2F95C100AAEAEA /* globe.png */,
-				3FC15E5D1A2F959700AAEAEA /* shake.png */,
-				3FC15E521A2F8BBC00AAEAEA /* favorite.png */,
-				3FC15E551A2F918D00AAEAEA /* favorite_hover.png */,
-				3FC15E571A2F91BA00AAEAEA /* favorite_click.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -283,13 +286,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FAD93751A1C062700560974 /* Images.xcassets in Resources */,
-				3FC15E561A2F918D00AAEAEA /* favorite_hover.png in Resources */,
-				3FC15E581A2F91BA00AAEAEA /* favorite_click.png in Resources */,
-				3FC15E5E1A2F959700AAEAEA /* shake.png in Resources */,
+				960B80C61A2FBEFD005FB5E9 /* cooked.png in Resources */,
+				960B80C21A2FBD30005FB5E9 /* heart.png in Resources */,
+				960B80C01A2FBD30005FB5E9 /* bookmarked.png in Resources */,
 				3FAD93641A1C062700560974 /* InfoPlist.strings in Resources */,
+				960B80C11A2FBD30005FB5E9 /* dice.png in Resources */,
 				3FC15E601A2F95C100AAEAEA /* globe.png in Resources */,
+				960B80C51A2FBEFD005FB5E9 /* timeline.png in Resources */,
 				3FAD936D1A1C062700560974 /* Main.storyboard in Resources */,
-				3FC15E531A2F8BBC00AAEAEA /* favorite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +317,7 @@
 				3FE42F9E1A2F5C340096D5A7 /* FavoritesVC.m in Sources */,
 				3FAD93701A1C062700560974 /* RandomizerVC.m in Sources */,
 				3FAD93661A1C062700560974 /* main.m in Sources */,
-				3F593D961A2E6F20002E7B7E /* RecipeDetailVC.m in Sources */,
+				960B80BC1A2FACE0005FB5E9 /* RecipeDetailVC2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +445,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodFlit/FoodFlit-Prefix.pch";
 				INFOPLIST_FILE = "FoodFlit/FoodFlit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -454,6 +459,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodFlit/FoodFlit-Prefix.pch";
 				INFOPLIST_FILE = "FoodFlit/FoodFlit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

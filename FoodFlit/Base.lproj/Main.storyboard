@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
@@ -33,10 +32,130 @@
             <point key="canvasLocation" x="1275" y="-183"/>
         </scene>
         <!--Navigation Controller-->
+        <scene sceneID="Ieo-cM-khk">
+            <objects>
+                <navigationController id="cNZ-gY-4t6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oQF-ti-aHe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6P5-xh-RqD" kind="relationship" relationship="rootViewController" id="enE-pI-xft"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8MR-03-I1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1695" y="-445"/>
+        </scene>
+        <!--Recipe DetailVC2-->
+        <scene sceneID="KSf-Sf-Z6z">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4O-il-eKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Details" id="6P5-xh-RqD" customClass="RecipeDetailVC2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z83-YW-KDP"/>
+                        <viewControllerLayoutGuide type="bottom" id="zTb-af-VOW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dth-hA-rgH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="180" translatesAutoresizingMaskIntoConstraints="NO" id="zsr-Ul-sOR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Bs6-2t-zyY">
+                                <rect key="frame" x="0.0" y="151" width="320" height="74"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="iDe-C6-sdo">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qyK-3O-SGK">
+                                            <rect key="frame" x="8" y="35" width="304" height="29"/>
+                                            <segments>
+                                                <segment title="Details"/>
+                                                <segment title="Nutrition"/>
+                                                <segment title="Ingredients"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="valueChanged:" destination="6P5-xh-RqD" eventType="valueChanged" id="Js2-b0-Ngb"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp5-bc-TUr">
+                                            <rect key="frame" x="259" y="2" width="27" height="27"/>
+                                            <color key="tintColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                            <state key="normal" image="bookmarked.png"/>
+                                            <connections>
+                                                <action selector="save:" destination="6P5-xh-RqD" eventType="touchUpInside" id="zKn-Oe-WBR"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWM-os-eSi">
+                                            <rect key="frame" x="9" y="5" width="211" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" red="1" green="1" blue="1" alpha="0.47000000000000003" colorSpace="calibratedRGB"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4N-E5-FU3">
+                                <rect key="frame" x="226" y="153" width="27" height="27"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Button" image="heart.png"/>
+                                <state key="selected" image="heart.png"/>
+                                <connections>
+                                    <action selector="favorite:" destination="6P5-xh-RqD" eventType="touchUpInside" id="J91-HA-8wA"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="344" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="usg-CF-04k">
+                                <rect key="frame" x="0.0" y="224" width="320" height="344"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipeCell" rowHeight="72" id="t2X-6t-llN">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t2X-6t-llN" id="46j-3N-vg6">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6P5-xh-RqD" id="F3B-hY-Vgr"/>
+                                    <outlet property="delegate" destination="6P5-xh-RqD" id="ljq-ld-qoi"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nP-kd-16r">
+                                <rect key="frame" x="289" y="155" width="28" height="24"/>
+                                <color key="tintColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" image="cooked.png"/>
+                                <connections>
+                                    <action selector="cooked:" destination="6P5-xh-RqD" eventType="touchUpInside" id="eap-sZ-JHv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8cv-0m-W3I"/>
+                    <connections>
+                        <outlet property="name" destination="rWM-os-eSi" id="kS2-4h-6Mn"/>
+                        <outlet property="pic" destination="zsr-Ul-sOR" id="YI5-fn-cGI"/>
+                        <outlet property="segment" destination="qyK-3O-SGK" id="liU-pD-9Cb"/>
+                        <outlet property="tableView" destination="usg-CF-04k" id="zHD-Z1-mo0"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2155" y="-445"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="jLQ-mk-62t">
             <objects>
                 <navigationController id="qwC-Ak-oai" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="bD2-Rl-gV0"/>
+                    <tabBarItem key="tabBarItem" title="" systemItem="bookmarks" id="bD2-Rl-gV0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vGR-tg-OoG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -123,11 +242,11 @@
             </objects>
             <point key="canvasLocation" x="739" y="1248"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Timeline-->
         <scene sceneID="gng-wC-42q">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Geg-o2-901" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="35a-wu-75g"/>
+                    <tabBarItem key="tabBarItem" title="Timeline" image="timeline.png" id="35a-wu-75g"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2ys-8l-cI8">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -139,11 +258,11 @@
             </objects>
             <point key="canvasLocation" x="739" y="532"/>
         </scene>
-        <!--Shake-->
+        <!--Random-->
         <scene sceneID="OvQ-p0-v7j">
             <objects>
                 <navigationController definesPresentationContext="YES" id="0j4-nY-90c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shake" image="shake.png" id="E1A-gU-Iia"/>
+                    <tabBarItem key="tabBarItem" title="Random" image="dice.png" id="E1A-gU-Iia"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Ly-Xk-XXZ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -241,8 +360,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="globe.png" width="32" height="32"/>
-        <image name="shake.png" width="32" height="32"/>
+        <image name="bookmarked.png" width="30" height="30"/>
+        <image name="cooked.png" width="50" height="50"/>
+        <image name="dice.png" width="30" height="30"/>
+        <image name="globe.png" width="30" height="30"/>
+        <image name="heart.png" width="30" height="30"/>
+        <image name="timeline.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
