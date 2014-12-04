@@ -27,21 +27,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favorites"]];
+    recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favoriteslist2"]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"faveAdded" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"favoriteAdded" object:nil];
     
-    self.recipes = [NSMutableArray array];
-    NSArray *oldRecipes = [[NSUserDefaults standardUserDefaults] arrayForKey:@"favorites"];
-    NSLog(@"Recipes: %@", oldRecipes);
-    for(NSString *recipeID in oldRecipes)
-    {
-        //NSLog(recipeID);
-        Recipe *recipe = [[Recipe alloc]initWithID:recipeID];
-        [self.recipes addObject:recipe];
-    }
-   
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -69,9 +58,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"\n\n\n\n%@\n\n\n\n",indexPath);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FaveCell" forIndexPath:indexPath];
     NSArray *p = (NSArray *)[recipes objectAtIndex:indexPath.row];
-    Recipe *rec=[NSKeyedUnarchiver unarchiveObjectWithData:[p objectAtIndex:1]];
+    Recipe *rec=(Recipe *)[NSKeyedUnarchiver unarchiveObjectWithData:[p objectAtIndex:1]];
     cell.textLabel.text = rec.recipeName;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -79,12 +69,13 @@
 }
 
 -(void)reloadTable{
-    recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favoriteslist"]];
+    recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favoriteslist2"]];
     [tableView reloadData];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *a = (NSArray *)[recipes objectAtIndex:indexPath.row];
+    NSLog(@"\n\n\n\n%@\n\n\n\n",indexPath);
+    NSArray *a = (NSArray *)[recipes objectAtIndex:[indexPath row]];
     Recipe *recipe = [NSKeyedUnarchiver unarchiveObjectWithData:[a objectAtIndex:1]];
     
     RecipeDetailVC *detailVC = [[RecipeDetailVC alloc] init];
@@ -103,7 +94,7 @@
         [self.recipes removeObjectAtIndex:indexPath.row];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:recipes forKey: @"favoriteslist"];
+        [defaults setObject:recipes forKey: @"favoriteslist2"];
         [defaults synchronize];
         [tableView reloadData];
     }

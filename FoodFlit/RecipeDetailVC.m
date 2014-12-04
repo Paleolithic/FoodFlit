@@ -40,25 +40,14 @@
 
 -(IBAction)favorite:(id)sender
 {
-    NSLog(@"%s",__FUNCTION__);
-    //Remove from favorites
-    if ([sender isSelected])
-    {
-        [sender setSelected:NO];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favoriteslist2"]];
+    NSArray *a = @[recipe.recipeID,[NSKeyedArchiver archivedDataWithRootObject:recipe]];
+    if (![array containsObject:a]) {
+        [array addObject:a];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favoriteslist2"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"faveAdded" object:nil];
     }
-    //Add to favorites
-    else
-    {
-        NSMutableArray *farray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]arrayForKey:@"favorites"]];
-        if (![farray containsObject:self.recipe.recipeID]) {
-            [farray addObject:self.recipe.recipeID];
-        }
-        //NSLog(@"%lu", (unsigned long)[farray count]);
-        [[NSUserDefaults standardUserDefaults] setObject:farray forKey:@"favorites"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"favoriteAdded" object:nil];
-    }
+
 }
 
 -(IBAction)save:(id)sender{
