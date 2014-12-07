@@ -20,6 +20,10 @@
 @property (nonatomic, strong) NSString *recipeImage;
 @property (nonatomic, strong) NSArray  *recipeIngredients;
 @property (nonatomic, strong) NSArray  *recipeNutrition;
+@property (nonatomic, strong) NSURL    *recipeURL;
+@property (nonatomic, strong) NSString *recipeMeal;
+@property (nonatomic, strong) NSString *recipeDish;
+@property (nonatomic, strong) NSString *recipeDifficulty;
 
 +(id)recipe;
 -(id)initWithID:(NSString *)r_ID;

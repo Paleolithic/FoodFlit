@@ -14,8 +14,10 @@
 @property (nonatomic, strong) Recipe *recipe;
 @property (nonatomic, strong)IBOutlet UIImageView *pic;
 @property (nonatomic, strong)IBOutlet UITableView *tableView;
+@property (nonatomic, strong)IBOutlet UIWebView *webView;
 @property (nonatomic, strong)IBOutlet UILabel *name;
 @property (nonatomic, strong)IBOutlet UISegmentedControl *segment;
+@property (nonatomic, strong)IBOutlet UIActivityIndicatorView *indicator;
 
 -(IBAction)favorite:(id)sender;
 -(IBAction)save:(id)sender;

@@ -14,7 +14,7 @@
 
 @implementation FavoritesVC
 
-@synthesize recipes, tableView;
+@synthesize recipes;//, tableView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,9 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favoriteslist2"]];
-    
+    favoritesSelected = true;
+    recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thefavoriteslist"]];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"faveAdded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"bookmarked" object:nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -58,10 +60,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"\n\n\n\n%@\n\n\n\n",indexPath);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FaveCell" forIndexPath:indexPath];
-    NSArray *p = (NSArray *)[recipes objectAtIndex:indexPath.row];
-    Recipe *rec=(Recipe *)[NSKeyedUnarchiver unarchiveObjectWithData:[p objectAtIndex:1]];
+    Recipe *rec=[[Recipe alloc] initWithID:[recipes objectAtIndex:indexPath.row]];
+    
     cell.textLabel.text = rec.recipeName;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -69,17 +70,19 @@
 }
 
 -(void)reloadTable{
-    recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favoriteslist2"]];
-    [tableView reloadData];
+    if(favoritesSelected){
+        recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thefavoriteslist"]];
+        
+    }else{
+        recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thebookmarkslist"]];
+    }
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:false];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"\n\n\n\n%@\n\n\n\n",indexPath);
-    NSArray *a = (NSArray *)[recipes objectAtIndex:[indexPath row]];
-    Recipe *recipe = [NSKeyedUnarchiver unarchiveObjectWithData:[a objectAtIndex:1]];
-    
-    RecipeDetailVC *detailVC = [[RecipeDetailVC alloc] init];
-    detailVC.recipe = recipe;
+    Recipe *rec=[[Recipe alloc] initWithID:[recipes objectAtIndex:indexPath.row]];
+    RecipeDetailVC *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Details"];
+    detailVC.recipe = rec;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -94,11 +97,19 @@
         [self.recipes removeObjectAtIndex:indexPath.row];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:recipes forKey: @"favoriteslist2"];
+        [defaults setObject:recipes forKey: @"favoriteslist"];
         [defaults synchronize];
         [tableView reloadData];
     }
 }
+
+-(IBAction)switchLists:(id)segment{
+    if([segment selectedSegmentIndex]==0){ favoritesSelected=true; }
+    else{ favoritesSelected=false; }
+    
+    [self performSelectorOnMainThread:@selector(reloadTable) withObject:nil waitUntilDone:false];
+}
+
 
 /*
  #pragma mark - Navigation

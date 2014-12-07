@@ -19,9 +19,13 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.view.backgroundColor = [UIColor clearColor];
-    
+    //self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor grayColor];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@""
+                                   style:UIBarButtonItemStylePlain
+                                   target:nil
+                                   action:nil];
     //NSLog(@"%@\n",recipe.recipeIngredients);
     
     name.text = recipe.recipeName;
@@ -38,26 +42,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Add to "thefavoriteslist" userDefaults
 -(IBAction)favorite:(id)sender
 {
-    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favoriteslist2"]];
-    NSArray *a = @[recipe.recipeID,[NSKeyedArchiver archivedDataWithRootObject:recipe]];
-    if (![array containsObject:a]) {
-        [array addObject:a];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favoriteslist2"];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thefavoriteslist"]];
+    if (![array containsObject:recipe.recipeID]) {
+        [array addObject:recipe.recipeID];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thefavoriteslist"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"faveAdded" object:nil];
     }
-
 }
 
+//Add to "thebookmarkslist" userDefaults
 -(IBAction)save:(id)sender{
-    
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thebookmarkslist"]];
+    if (![array containsObject:recipe.recipeID]) {
+        [array addObject:recipe.recipeID];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thebookmarkslist"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"bookmarked" object:nil];
+    }
 }
+
+//Add to timeline
 -(IBAction)cooked:(id)sender{
     
 }
 - (IBAction)valueChanged:(UISegmentedControl *)seg {
-    [tableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -69,42 +80,49 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(segment.selectedSegmentIndex == 0) {
-        return 5;
-        
+        return recipe.recipeIngredients.count;
     }else if(segment.selectedSegmentIndex == 1){
-        //return 5;
         return recipe.recipeNutrition.count;
     }else{
-        return recipe.recipeIngredients.count;
+        return 1;
     }
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipeCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"RecipeCell" forIndexPath:indexPath];
 
-    
     if(segment.selectedSegmentIndex == 0) {
+        //Make table visible
+        [self.webView setHidden:YES];
+        [self.tableView setHidden:NO];
+        cell.textLabel.text = [recipe.recipeIngredients objectAtIndex:indexPath.row];
         
     }else if(segment.selectedSegmentIndex == 1){
-       // NSLog(@"recipeNutrition count: %d", recipe.recipeNutrition.count);
+        //Make table visible
+        [self.webView setHidden:YES];
+        [self.tableView setHidden:NO];
+        
+        //Get and set cells text to nutrition information
         NSDictionary *nutDict = [recipe.recipeNutrition objectAtIndex:indexPath.row];
         NSDictionary *unitDict = [nutDict valueForKey:@"unit"];
-        NSLog(@"unitDict : %@", unitDict);
-        NSLog(@"nutDict : %@", nutDict);
-        NSString *nutDesc = [unitDict valueForKey:@"plural"];
-        NSLog(@"nutDesc : %@", nutDesc);
+        NSString *nutDesc = [nutDict valueForKey:@"description"];
         NSString *nutVal  = [nutDict valueForKey:@"value"];
-        NSLog(@"nutVal : %@", nutVal);
         NSString *nutUnit = [unitDict valueForKey:@"abbreviation"];
-         NSLog(@"nutUnit : %@", nutUnit);
         NSString *labelText = [NSString stringWithFormat:@"%@: %@ %@", nutDesc, nutVal, nutUnit];
-        NSLog(@"Label Text : %@", labelText);
+        
         cell.textLabel.text = labelText;
-        //cell.textLabel.text = [recipe.recipeNutrition objectAtIndex:indexPath.row];
     }else if(segment.selectedSegmentIndex == 2){
-        cell.textLabel.text = [recipe.recipeIngredients objectAtIndex:indexPath.row];
+        [self.indicator startAnimating];
+        //Make webView visible
+        NSLog(@"Loading webView with url: %@", self.recipe.recipeURL);
+        [self.webView setHidden:NO];
+        [self.tableView setHidden:YES];
+        NSURL *url = self.recipe.recipeURL;
+        NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:requestObj];
+        [self.indicator stopAnimating];
     }
     
     
@@ -114,12 +132,12 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(segment.selectedSegmentIndex == 2){
+    /*if(segment.selectedSegmentIndex == 2){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipeCell" forIndexPath:indexPath];
         if(cell.accessoryType == UITableViewCellAccessoryCheckmark){
             cell.accessoryType = UITableViewCellAccessoryNone;
         }else cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
+    }*/
 }
 
 /*

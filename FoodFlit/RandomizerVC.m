@@ -147,9 +147,8 @@
     NSArray *matchesDict = [json valueForKey:@"matches"];
     
     //Get random recipe from matches
-    int r = arc4random_uniform([matchesDict count]);
+    int r = arc4random_uniform((int)[matchesDict count]);
     NSDictionary *recipe = [matchesDict objectAtIndex:r];
-    
     //Grab that recipe's ID and name, set name to button text and make button visible
     self.recipeID = [recipe valueForKey:@"id"];
     self.recipeName = [recipe valueForKey:@"recipeName"];

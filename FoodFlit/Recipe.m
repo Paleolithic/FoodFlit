@@ -12,7 +12,7 @@
 
 @implementation Recipe
 
-@synthesize recipeID, recipeName, recipeImage, recipeIngredients, recipeNutrition;
+@synthesize recipeID, recipeName, recipeImage, recipeIngredients, recipeNutrition, recipeURL;
 
 -(id) init{
     /*
@@ -31,7 +31,7 @@
     //self.recipeName = r_Name;
     
     NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipe/%@?_app_id=%@&_app_key=%@", self.recipeID, applicationID, applicationKey]];
-    NSLog(@"URL: %@", url);
+    //NSLog(@"URL: %@", url);
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLResponse *response = nil;
     NSError *error = nil;
@@ -62,7 +62,12 @@
     
     //Nutrition array set
     self.recipeNutrition   = [json valueForKey:@"nutritionEstimates"];
-    NSLog(@"Recipe Nutrition: %@", self.recipeNutrition);
+    //NSLog(@"Recipe Nutrition: %@", self.recipeNutrition);
+    
+    //URL set
+    NSString *urlString = [[json objectForKey:@"source"] objectForKey:@"sourceRecipeUrl"];
+    self.recipeURL = [NSURL URLWithString:urlString];
+    //NSLog(@"URL: %@", self.recipeURL);
     
     return self;
 }
