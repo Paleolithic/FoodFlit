@@ -40,22 +40,18 @@
 
 -(IBAction)favorite:(id)sender
 {
-    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thefavoriteslist"]];
-    if (![array containsObject:recipe.recipeID]) {
-        [array addObject:recipe.recipeID];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thefavoriteslist"];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favoriteslist2"]];
+    NSArray *a = @[recipe.recipeID,[NSKeyedArchiver archivedDataWithRootObject:recipe]];
+    if (![array containsObject:a]) {
+        [array addObject:a];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"favoriteslist2"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"faveAdded" object:nil];
     }
 
 }
 
 -(IBAction)save:(id)sender{
-    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thebookmarkslist"]];
-    if (![array containsObject:recipe.recipeID]) {
-        [array addObject:recipe.recipeID];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thebookmarkslist"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"bookmarked" object:nil];
-    }
+    
 }
 -(IBAction)cooked:(id)sender{
     

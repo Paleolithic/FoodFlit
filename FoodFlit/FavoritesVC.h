@@ -10,13 +10,8 @@
 #import "Recipe.h"
 #import "RecipeDetailVC.h"
 
-@interface FavoritesVC : UITableViewController{
-    BOOL favoritesSelected;
-}
+@interface FavoritesVC : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *recipes;
-@property (strong, nonatomic)IBOutlet UITableView *tableView;
-
--(IBAction)switchLists:(id)sender;
 
 @end
