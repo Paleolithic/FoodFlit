@@ -21,11 +21,7 @@
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     //self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor grayColor];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@""
-                                   style:UIBarButtonItemStylePlain
-                                   target:nil
-                                   action:nil];
+
     //NSLog(@"%@\n",recipe.recipeIngredients);
     
     name.text = recipe.recipeName;

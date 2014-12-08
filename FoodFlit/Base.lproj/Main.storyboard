@@ -254,10 +254,10 @@
             </objects>
             <point key="canvasLocation" x="739" y="1248"/>
         </scene>
-        <!--View Controller-->
+        <!--GlobeVC-->
         <scene sceneID="LpJ-a1-bgN">
             <objects>
-                <viewController id="CaG-pw-Aa8" sceneMemberID="viewController">
+                <viewController id="CaG-pw-Aa8" customClass="GlobeVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Yj-bC-uiG"/>
                         <viewControllerLayoutGuide type="bottom" id="ZW9-AK-p0r"/>
@@ -266,13 +266,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C4h-Bq-JJr">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C4h-Bq-JJr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </mapView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-qX-IEP">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="3ww-AL-CKq"/>
+                    <connections>
+                        <outlet property="indicatorView" destination="rDf-qX-IEP" id="BmZ-K5-F5q"/>
+                        <outlet property="mapView" destination="C4h-Bq-JJr" id="8Zt-q4-Jg0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLZ-hR-kjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

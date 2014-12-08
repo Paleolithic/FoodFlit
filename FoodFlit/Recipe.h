@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+#import <AddressBook/AddressBook.h>
+#import <MapKit/MapKit.h>
 
-@interface Recipe : NSObject<NSCoding>{
+@interface Recipe : NSObject<MKAnnotation, NSCoding>{
    
     NSString *recipeImage;
     NSArray  *recipeIngredients;
     NSArray  *recipeNutrition;
+    CLLocation *location;
 }
 
 @property (nonatomic, assign) NSString *recipeID;
@@ -24,6 +28,8 @@
 @property (nonatomic, strong) NSString *recipeMeal;
 @property (nonatomic, strong) NSString *recipeDish;
 @property (nonatomic, strong) NSString *recipeDifficulty;
+@property (nonatomic, strong) CLLocation *location;
+
 
 +(id)recipe;
 -(id)initWithID:(NSString *)r_ID;
