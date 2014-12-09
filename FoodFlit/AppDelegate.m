@@ -7,12 +7,37 @@
 //
 
 #import "AppDelegate.h"
+#import "GlobeVC.h"
+#import "Recipe.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //Somewhat temporary. Need to figure out a way to pass recipes to GlobeVC class, and also
+    //need to figure out how to update recipes for GlobeVC
     // Override point for customization after application launch.
+    self.recipes = [NSMutableArray array];
+    
+    NSMutableArray *tempRecipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thefavoriteslist"]];
+    self.recipes = [[NSMutableArray alloc]init];
+    for(NSString *recID in tempRecipes){
+        Recipe *rec = [[Recipe alloc]initWithID:recID];
+        [self.recipes addObject:rec];
+    }
+
+    //CHECK IF PARKS WERE CREATED PROPERLY THIS IS IN CAPS IM SORRY
+    for (Recipe *park in self.recipes){
+        NSLog(@"park=%@",park);
+        NSLog(@"Recipe Name:%@", park.recipeName);
+        NSLog(@"Recipe Location:%@", park.location);
+    }
+    
+    self.tabBarController = (UITabBarController *)self.window.rootViewController;
+    UINavigationController *navVC = (UINavigationController *) [[self.tabBarController viewControllers] objectAtIndex:3];
+    GlobeVC *myMapVC = (GlobeVC *)[[navVC viewControllers] objectAtIndex:0];
+    myMapVC.recipes = self.recipes;
     return YES;
 }
 							

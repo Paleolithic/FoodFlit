@@ -11,16 +11,16 @@
 #import <AddressBook/AddressBook.h>
 #import <MapKit/MapKit.h>
 
-@interface Recipe : NSObject<MKAnnotation, NSCoding>{
+@interface Recipe : NSObject<MKAnnotation>{
    
     NSString *recipeImage;
     NSArray  *recipeIngredients;
     NSArray  *recipeNutrition;
-    CLLocation *location;
+    CLLocationCoordinate2D *location;
 }
 
 @property (nonatomic, assign) NSString *recipeID;
-@property (nonatomic, assign) NSString *recipeName;
+@property (nonatomic, strong) NSString *recipeName;
 @property (nonatomic, strong) NSString *recipeImage;
 @property (nonatomic, strong) NSArray  *recipeIngredients;
 @property (nonatomic, strong) NSArray  *recipeNutrition;
@@ -36,5 +36,6 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder;
 -(id)initWithCoder:(NSCoder *)aDecoder;
+
 
 @end

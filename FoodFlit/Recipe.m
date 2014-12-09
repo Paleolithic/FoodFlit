@@ -12,23 +12,22 @@
 
 @implementation Recipe
 
-@synthesize recipeID, recipeName, recipeImage, recipeIngredients, recipeNutrition, recipeURL,location;
+@synthesize recipeID, recipeName, recipeImage, recipeIngredients, recipeNutrition, recipeURL, location=_location;
 
 -(id) init{
-    /*
+    
      self = [super init];
      if(self){
      //init code goes here
      }
      return self;
-     */
-    return [self initWithID:@"unknown"];
+     
+    //return [self initWithID:@"unknown"];
     //return[self initWithName:@"unknown" location:@"unknown" formed:@"unknown" area:@"unknown" link:@"unknown" cLocation:nil imageLink:@"unknown" parkDescription:@"unknown" ];
 }
 
 -(id)initWithID:(NSString *)r_ID{
     self.recipeID = r_ID;
-    //self.recipeName = r_Name;
     
     NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipe/%@?_app_id=%@&_app_key=%@", self.recipeID, applicationID, applicationKey]];
     //NSLog(@"URL: %@", url);
@@ -69,23 +68,28 @@
     self.recipeURL = [NSURL URLWithString:urlString];
     //NSLog(@"URL: %@", self.recipeURL);
     
-    //CLLocation Set
+    //Recipe dish set
     NSArray *cuisines = [[json objectForKey:@"attributes"] objectForKey:@"cuisine"];
     self.recipeDish = [cuisines objectAtIndex:0];
+     
+     
     CLGeocoder *geocoder = [CLGeocoder new];
     [geocoder geocodeAddressString:self.recipeDish completionHandler:^(NSArray *placemarks, NSError *error){
         if(error){
-            NSLog(@"Error: %@", [error localizedDescription]);
+            //NSLog(@"Error: %@", [error localizedDescription]);
             return;
         }
         
         if([placemarks count] > 0){
             CLPlacemark *placemark = [placemarks lastObject];
+            //self.location = placemark.location.coordinate;
             self.location = placemark.location;
-            NSLog(@"Location : %@", self.location);
+            NSLog(@"Location inside: %@", self.location);
         }
     }];
-    NSLog(@"Location : %@", self.location);
+    NSLog(@"Location outside: %@", self.location);
+    
+
     return self;
 }
 
@@ -95,36 +99,17 @@
     return recipe;
 }
 
-- (NSString*)title{
-    return self.recipeName;
-}
-- (NSString *)subtitle{
-    return self.recipeDish;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder{
-    [aCoder encodeObject:recipeID forKey:@"ID"];
-    [aCoder encodeObject:recipeName forKey:@"name"];
-    [aCoder encodeObject:recipeImage forKey:@"image"];
-    [aCoder encodeObject:recipeIngredients forKey:@"ingredients"];
-    [aCoder encodeObject:recipeNutrition forKey:@"nutrition"];
-
-    
-}
-
--(id)initWithCoder:(NSCoder *)aDecoder{
-    if(self = [super init]){
-        self.recipeID = [aDecoder decodeObjectForKey:@"ID"];
-        self.recipeName = [aDecoder decodeObjectForKey:@"name"];
-        self.recipeNutrition = [aDecoder decodeObjectForKey:@"nutrition"];
-        self.recipeImage = [aDecoder decodeObjectForKey:@"image"];
-        self.recipeIngredients = [aDecoder decodeObjectForKey:@"ingredients"];
-    }
-    return self;
-}
-
 //needed for MKAnnotation Protocol method
 -(CLLocationCoordinate2D)coordinate {
     return self.location.coordinate;
 }
+
+- (NSString*)title{
+    return self.recipeName;
+}
+
+- (NSString *)subtitle{
+    return self.recipeDish;
+}
+
 @end

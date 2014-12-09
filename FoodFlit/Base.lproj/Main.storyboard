@@ -266,10 +266,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-qX-IEP">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C4h-Bq-JJr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </mapView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-qX-IEP">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zuZ-hj-5gw">
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -277,8 +280,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="3ww-AL-CKq"/>
                     <connections>
-                        <outlet property="indicatorView" destination="rDf-qX-IEP" id="BmZ-K5-F5q"/>
-                        <outlet property="mapView" destination="C4h-Bq-JJr" id="8Zt-q4-Jg0"/>
+                        <outlet property="indicatorView" destination="zuZ-hj-5gw" id="kQo-1r-m5W"/>
+                        <outlet property="mapView" destination="C4h-Bq-JJr" id="KSE-q1-nAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLZ-hR-kjC" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F20E8E51A37A168006EF4B5 /* GlobeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F20E8E41A37A168006EF4B5 /* GlobeVC.m */; };
 		3F593D931A2E65F5002E7B7E /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593D921A2E65F5002E7B7E /* Recipe.m */; };
 		3F8562CA1A36114B00885281 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8562C91A36114B00885281 /* CoreLocation.framework */; };
-		3F8562CD1A36118300885281 /* GlobeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8562CC1A36118300885281 /* GlobeVC.m */; };
 		3FAD935A1A1C062700560974 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD93591A1C062700560974 /* Foundation.framework */; };
 		3FAD935C1A1C062700560974 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD935B1A1C062700560974 /* CoreGraphics.framework */; };
 		3FAD935E1A1C062700560974 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD935D1A1C062700560974 /* UIKit.framework */; };
@@ -47,11 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F20E8E31A37A168006EF4B5 /* GlobeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobeVC.h; sourceTree = "<group>"; };
+		3F20E8E41A37A168006EF4B5 /* GlobeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobeVC.m; sourceTree = "<group>"; };
 		3F593D911A2E65F5002E7B7E /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
 		3F593D921A2E65F5002E7B7E /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		3F8562C91A36114B00885281 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		3F8562CB1A36118300885281 /* GlobeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobeVC.h; sourceTree = "<group>"; };
-		3F8562CC1A36118300885281 /* GlobeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobeVC.m; sourceTree = "<group>"; };
 		3FAD93561A1C062700560974 /* FoodFlit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFlit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAD93591A1C062700560974 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FAD935B1A1C062700560974 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,8 +120,8 @@
 				3FE42F9D1A2F5C340096D5A7 /* FavoritesVC.m */,
 				960B80BA1A2FACE0005FB5E9 /* RecipeDetailVC.h */,
 				960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC.m */,
-				3F8562CB1A36118300885281 /* GlobeVC.h */,
-				3F8562CC1A36118300885281 /* GlobeVC.m */,
+				3F20E8E31A37A168006EF4B5 /* GlobeVC.h */,
+				3F20E8E41A37A168006EF4B5 /* GlobeVC.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F8562CD1A36118300885281 /* GlobeVC.m in Sources */,
+				3F20E8E51A37A168006EF4B5 /* GlobeVC.m in Sources */,
 				3F593D931A2E65F5002E7B7E /* Recipe.m in Sources */,
 				3FAD936A1A1C062700560974 /* AppDelegate.m in Sources */,
 				3FE42F9E1A2F5C340096D5A7 /* FavoritesVC.m in Sources */,
