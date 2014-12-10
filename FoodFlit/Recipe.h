@@ -34,8 +34,6 @@
 +(id)recipe;
 -(id)initWithID:(NSString *)r_ID;
 
-- (void)encodeWithCoder:(NSCoder *)aCoder;
--(id)initWithCoder:(NSCoder *)aDecoder;
 
 
 @end

@@ -51,7 +51,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Ieo-cM-khk">
             <objects>
-                <navigationController id="cNZ-gY-4t6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="recipeNC" id="cNZ-gY-4t6" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oQF-ti-aHe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -76,61 +76,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <webView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MrJ-dZ-pWt">
+                                <rect key="frame" x="0.0" y="236" width="320" height="284"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="180" translatesAutoresizingMaskIntoConstraints="NO" id="zsr-Ul-sOR">
                                 <rect key="frame" x="0.0" y="64" width="320" height="161"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="344" alwaysBounceVertical="YES" delaysContentTouches="NO" canCancelContentTouches="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="usg-CF-04k">
-                                <rect key="frame" x="0.0" y="247" width="320" height="265"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipeCell" rowHeight="72" id="t2X-6t-llN">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t2X-6t-llN" id="46j-3N-vg6">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="6P5-xh-RqD" id="F3B-hY-Vgr"/>
-                                    <outlet property="delegate" destination="6P5-xh-RqD" id="ljq-ld-qoi"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nP-kd-16r">
-                                <rect key="frame" x="292" y="75" width="28" height="24"/>
-                                <color key="tintColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" image="cooked.png"/>
-                                <connections>
-                                    <action selector="cooked:" destination="6P5-xh-RqD" eventType="touchUpInside" id="eap-sZ-JHv"/>
-                                </connections>
-                            </button>
-                            <webView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MrJ-dZ-pWt">
-                                <rect key="frame" x="0.0" y="228" width="320" height="284"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yHa-Gu-X2Y">
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4N-E5-FU3">
-                                <rect key="frame" x="225" y="72" width="27" height="27"/>
-                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Button" image="heart.png"/>
-                                <state key="selected" image="heart.png"/>
-                                <connections>
-                                    <action selector="favorite:" destination="6P5-xh-RqD" eventType="touchUpInside" id="J91-HA-8wA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp5-bc-TUr">
-                                <rect key="frame" x="260" y="75" width="24" height="24"/>
-                                <color key="tintColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" image="save.png"/>
-                                <connections>
-                                    <action selector="save:" destination="6P5-xh-RqD" eventType="touchUpInside" id="zKn-Oe-WBR"/>
-                                </connections>
-                            </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Bs6-2t-zyY">
                                 <rect key="frame" x="0.0" y="165" width="320" height="74"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="iDe-C6-sdo">
@@ -160,6 +115,51 @@
                                 </view>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nP-kd-16r">
+                                <rect key="frame" x="292" y="170" width="28" height="24"/>
+                                <color key="tintColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" image="cooked.png"/>
+                                <connections>
+                                    <action selector="cooked:" destination="6P5-xh-RqD" eventType="touchUpInside" id="eap-sZ-JHv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp5-bc-TUr">
+                                <rect key="frame" x="260" y="170" width="24" height="24"/>
+                                <color key="tintColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" image="save.png"/>
+                                <connections>
+                                    <action selector="save:" destination="6P5-xh-RqD" eventType="touchUpInside" id="zKn-Oe-WBR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4N-E5-FU3">
+                                <rect key="frame" x="221" y="168" width="27" height="27"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Button" image="heart.png"/>
+                                <state key="selected" image="heart.png"/>
+                                <connections>
+                                    <action selector="favorite:" destination="6P5-xh-RqD" eventType="touchUpInside" id="J91-HA-8wA"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="344" alwaysBounceVertical="YES" delaysContentTouches="NO" canCancelContentTouches="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="usg-CF-04k">
+                                <rect key="frame" x="0.0" y="255" width="320" height="265"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipeCell" rowHeight="72" id="t2X-6t-llN">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t2X-6t-llN" id="46j-3N-vg6">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6P5-xh-RqD" id="F3B-hY-Vgr"/>
+                                    <outlet property="delegate" destination="6P5-xh-RqD" id="ljq-ld-qoi"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -237,23 +237,6 @@
             </objects>
             <point key="canvasLocation" x="1275" y="532"/>
         </scene>
-        <!--Globe-->
-        <scene sceneID="pcE-aq-erT">
-            <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="aE4-1l-vnb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Globe" image="globe.png" id="Flc-iK-8av"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yd4-2m-UKD">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="CaG-pw-Aa8" kind="relationship" relationship="rootViewController" id="hEa-ao-ZlQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x7R-mF-6K8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="739" y="1248"/>
-        </scene>
         <!--GlobeVC-->
         <scene sceneID="LpJ-a1-bgN">
             <objects>
@@ -266,9 +249,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-qX-IEP">
-                                <rect key="frame" x="150" y="274" width="20" height="20"/>
-                            </activityIndicatorView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C4h-Bq-JJr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </mapView>
@@ -287,6 +267,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLZ-hR-kjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1275" y="1248"/>
+        </scene>
+        <!--Globe-->
+        <scene sceneID="hCh-iX-lQK">
+            <objects>
+                <navigationController id="GFY-C5-E3n" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Globe" image="globe.png" id="XEe-dy-3Fg"/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="OW6-Md-KRN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CaG-pw-Aa8" kind="relationship" relationship="rootViewController" id="PVV-ia-qA6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ckX-RY-6h3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="739" y="1248"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="gng-wC-42q">
@@ -400,7 +397,7 @@
                         <segue destination="0j4-nY-90c" kind="relationship" relationship="viewControllers" id="trN-Kd-DPX"/>
                         <segue destination="qwC-Ak-oai" kind="relationship" relationship="viewControllers" id="GaG-pQ-RGS"/>
                         <segue destination="Geg-o2-901" kind="relationship" relationship="viewControllers" id="ryW-NH-D9t"/>
-                        <segue destination="aE4-1l-vnb" kind="relationship" relationship="viewControllers" id="qyX-Pd-QZj"/>
+                        <segue destination="GFY-C5-E3n" kind="relationship" relationship="viewControllers" id="J0x-c3-xm8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>

@@ -29,7 +29,7 @@
     
     //Init picker data
     _pickerData = @[@[@"Breakfast and Brunch", @"Lunch and Snacks", @"Main Dishes", @"Desserts"],
-                    @[@"American", @"Italian", @"Asian", @"French", @"Barbecue", @"Chinese", @"Greek", @"German", @"Thai", @"Japanese", @"Spanish", @"Mediterranean", @"Mexican", @"Indian"],
+                    @[@"American", @"Italian", @"Asian", @"French", @"Chinese", @"Greek", @"German", @"Thai", @"Japanese", @"Spanish", @"Mediterranean", @"Mexican", @"Indian"],
                     @[@"Very Easy", @"Easy", @"Medium", @"Hard", @"Very Hard"]];
     
     self.randomPicker.dataSource = self;

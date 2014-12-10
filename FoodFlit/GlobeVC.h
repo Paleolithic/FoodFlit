@@ -11,6 +11,9 @@
 #import <CoreLocation/CLLocation.h>
 #import <AddressBook/AddressBook.h>
 
+#import "Recipe.h"
+#import "RecipeDetailVC.h"
+
 @interface GlobeVC : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
