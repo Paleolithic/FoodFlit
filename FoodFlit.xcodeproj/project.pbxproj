@@ -34,6 +34,9 @@
 		960B80C61A2FBEFD005FB5E9 /* cooked.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80C41A2FBEFD005FB5E9 /* cooked.png */; };
 		960B80C81A30269F005FB5E9 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 960B80C71A30269F005FB5E9 /* save.png */; };
 		960B80CA1A302E59005FB5E9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 960B80C91A302E59005FB5E9 /* MapKit.framework */; };
+		962A08971A39178F0011F467 /* heart_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 962A08961A39178F0011F467 /* heart_selected.png */; };
+		962A089C1A3930960011F467 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 962A089B1A3930960011F467 /* CustomCell.m */; };
+		962A08A11A39747E0011F467 /* TimelineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 962A08A01A39747E0011F467 /* TimelineVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,11 @@
 		960B80C41A2FBEFD005FB5E9 /* cooked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cooked.png; sourceTree = "<group>"; };
 		960B80C71A30269F005FB5E9 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		960B80C91A302E59005FB5E9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		962A08961A39178F0011F467 /* heart_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_selected.png; sourceTree = "<group>"; };
+		962A089A1A3930960011F467 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		962A089B1A3930960011F467 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		962A089F1A39747E0011F467 /* TimelineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVC.h; sourceTree = "<group>"; };
+		962A08A01A39747E0011F467 /* TimelineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,8 @@
 				960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC.m */,
 				3F20E8E31A37A168006EF4B5 /* GlobeVC.h */,
 				3F20E8E41A37A168006EF4B5 /* GlobeVC.m */,
+				962A089F1A39747E0011F467 /* TimelineVC.h */,
+				962A08A01A39747E0011F467 /* TimelineVC.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -131,6 +141,8 @@
 			children = (
 				3F593D911A2E65F5002E7B7E /* Recipe.h */,
 				3F593D921A2E65F5002E7B7E /* Recipe.m */,
+				962A089A1A3930960011F467 /* CustomCell.h */,
+				962A089B1A3930960011F467 /* CustomCell.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -214,6 +226,7 @@
 		3FC15E541A2F8C6E00AAEAEA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				962A08961A39178F0011F467 /* heart_selected.png */,
 				960B80C71A30269F005FB5E9 /* save.png */,
 				960B80C31A2FBEFD005FB5E9 /* timeline.png */,
 				960B80C41A2FBEFD005FB5E9 /* cooked.png */,
@@ -305,6 +318,7 @@
 				960B80C61A2FBEFD005FB5E9 /* cooked.png in Resources */,
 				960B80C21A2FBD30005FB5E9 /* heart.png in Resources */,
 				960B80C01A2FBD30005FB5E9 /* bookmarked.png in Resources */,
+				962A08971A39178F0011F467 /* heart_selected.png in Resources */,
 				3FAD93641A1C062700560974 /* InfoPlist.strings in Resources */,
 				960B80C11A2FBD30005FB5E9 /* dice.png in Resources */,
 				960B80C81A30269F005FB5E9 /* save.png in Resources */,
@@ -329,8 +343,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962A08A11A39747E0011F467 /* TimelineVC.m in Sources */,
 				3F20E8E51A37A168006EF4B5 /* GlobeVC.m in Sources */,
 				3F593D931A2E65F5002E7B7E /* Recipe.m in Sources */,
+				962A089C1A3930960011F467 /* CustomCell.m in Sources */,
 				3FAD936A1A1C062700560974 /* AppDelegate.m in Sources */,
 				3FE42F9E1A2F5C340096D5A7 /* FavoritesVC.m in Sources */,
 				3FAD93701A1C062700560974 /* RandomizerVC.m in Sources */,

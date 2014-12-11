@@ -16,6 +16,7 @@
 @property (nonatomic, strong)IBOutlet UITableView *tableView;
 @property (nonatomic, strong)IBOutlet UIWebView *webView;
 @property (nonatomic, strong)IBOutlet UILabel *name;
+@property (nonatomic, strong)IBOutlet UILabel *info;
 @property (nonatomic, strong)IBOutlet UISegmentedControl *segment;
 @property (nonatomic, strong)IBOutlet UIActivityIndicatorView *indicator;
 

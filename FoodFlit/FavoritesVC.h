@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Recipe.h"
 #import "RecipeDetailVC.h"
+#import "CustomCell.h"
 
 @interface FavoritesVC : UITableViewController{
     BOOL favoritesSelected;
 }
 
 @property (strong, nonatomic) NSMutableArray *recipes;
-//@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 -(IBAction)switchLists:(id)sender;
+
 @end

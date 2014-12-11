@@ -12,7 +12,7 @@
 
 @implementation Recipe
 
-@synthesize recipeID, recipeName, recipeImage, recipeIngredients, recipeNutrition, recipeURL, location=_location;
+@synthesize recipeID, recipeName, recipeImage, recipeIngredients, recipeNutrition, recipeURL, location=_location, recipeDifficulty;
 
 -(id) init{
     
@@ -45,7 +45,7 @@
                 error:nil];
     }
     
-    //NSLog(@"Response : %@", json);
+    NSLog(@"Response : %@", json);
     
     //Name set
     self.recipeName = [json valueForKey:@"name"];
@@ -53,8 +53,9 @@
     //Image url set
     NSArray *images = [json valueForKey:@"images"];
     NSDictionary *imagesDict = [images objectAtIndex: 0];
-    self.recipeImage = [imagesDict valueForKey:@"hostedLargeUrl"];
-    
+    NSURL *imageLink = [NSURL URLWithString:[imagesDict valueForKey:@"hostedLargeUrl"]];
+    NSData *data = [NSData dataWithContentsOfURL:imageLink];
+    recipeImage = [[UIImage alloc] initWithData:data];
     //Ingredients array set
     self.recipeIngredients = [json valueForKey:@"ingredientLines"];
     
@@ -72,6 +73,28 @@
     NSArray *cuisines = [[json objectForKey:@"attributes"] objectForKey:@"cuisine"];
     self.recipeDish = [cuisines objectAtIndex:0];
     
+    //Recipe course set
+    NSArray *course = [[json objectForKey:@"attributes"] objectForKey:@"course"];
+    self.recipeMeal = [course objectAtIndex:0];
+    
+    //Max Recipe Cook Time
+    NSString *t = [json valueForKey:@"totalTimeInSeconds"];
+    int time = [t intValue];
+    
+    //Sets User Readable Cook Time
+    if(time<=1800){
+        recipeDifficulty = @"Very Easy";
+    }else if (time<=3600){
+        recipeDifficulty = @"Easy";
+    }else if (time<=5400){
+        recipeDifficulty = @"Medium";
+    }else if (time<=7200){
+        recipeDifficulty = @"Hard";
+    }else{
+        recipeDifficulty = @"Very Hard";
+    }
+    
+
     
     //Coordinates set based on recipe dish
     CLLocationCoordinate2D coord;

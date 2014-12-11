@@ -37,6 +37,11 @@
     self.mealType = @"Breakfast";
     self.dishType = @"American";
     self.difficulty = @"Very Easy";
+    
+    [self.randomPicker selectRow:2 inComponent:0 animated:YES];
+    [self.randomPicker selectRow:2 inComponent:1 animated:YES];
+    [self.randomPicker selectRow:2 inComponent:2 animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning

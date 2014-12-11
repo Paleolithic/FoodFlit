@@ -14,7 +14,7 @@
 
 @implementation FavoritesVC
 
-@synthesize recipes;//, tableView;
+@synthesize recipes;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -60,12 +60,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FaveCell" forIndexPath:indexPath];
+    CustomCell *cell = (CustomCell *)[tableView dequeueReusableCellWithIdentifier:@"FaveCell" forIndexPath:indexPath];
     Recipe *rec=[[Recipe alloc] initWithID:[recipes objectAtIndex:indexPath.row]];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
     
-    cell.textLabel.text = rec.recipeName;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+    cell.imgView.image = rec.recipeImage;
+    cell.name.text = rec.recipeName;
+    cell.info.text = [NSString stringWithFormat:@"%@ ∫ %@ ∫ %@",rec.recipeMeal, rec.recipeDish, rec.recipeDifficulty];
+        
     return cell;
 }
 
@@ -108,6 +114,11 @@
     else{ favoritesSelected=false; }
     
     [self performSelectorOnMainThread:@selector(reloadTable) withObject:nil waitUntilDone:false];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 160;
 }
 
 

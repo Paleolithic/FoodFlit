@@ -13,7 +13,7 @@
 
 @interface Recipe : NSObject<MKAnnotation>{
    
-    NSString *recipeImage;
+    UIImage *recipeImage;
     NSArray  *recipeIngredients;
     NSArray  *recipeNutrition;
     CLLocationCoordinate2D *location;
@@ -21,7 +21,7 @@
 
 @property (nonatomic, assign) NSString *recipeID;
 @property (nonatomic, strong) NSString *recipeName;
-@property (nonatomic, strong) NSString *recipeImage;
+@property (nonatomic, strong) UIImage *recipeImage;
 @property (nonatomic, strong) NSArray  *recipeIngredients;
 @property (nonatomic, strong) NSArray  *recipeNutrition;
 @property (nonatomic, strong) NSURL    *recipeURL;

@@ -13,22 +13,20 @@
 @end
 
 @implementation RecipeDetailVC
-@synthesize recipe, name, pic, segment, tableView;
+@synthesize recipe, name, pic, segment, tableView, info;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     //self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.view.backgroundColor = [UIColor grayColor];
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
 
     //NSLog(@"%@\n",recipe.recipeIngredients);
     
     name.text = recipe.recipeName;
-    NSURL *url = [NSURL URLWithString:recipe.recipeImage];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] initWithData:data];
-    pic.image = img;
+    info.text = [NSString stringWithFormat:@"%@ ∫ %@ ∫ %@",recipe.recipeMeal, recipe.recipeDish, recipe.recipeDifficulty];
+    pic.image = recipe.recipeImage;
     
     // Do any additional setup after loading the view.
 }
@@ -61,7 +59,12 @@
 
 //Add to timeline
 -(IBAction)cooked:(id)sender{
-    
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thecookedlist"]];
+    if (![array containsObject:recipe.recipeID]) {
+        [array addObject:recipe.recipeID];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thecookedlist"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"cooked" object:nil];
+    }
 }
 - (IBAction)valueChanged:(UISegmentedControl *)seg {
     [self.tableView reloadData];
