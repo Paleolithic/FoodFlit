@@ -26,6 +26,18 @@
     } else{
         [self.locationManager requestAlwaysAuthorization];
     }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadGlobe) name:@"cooked" object:nil];
+    NSMutableArray *tempRecipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thecookedlist"]];
+    self.recipes = [[NSMutableArray alloc]init];
+    for(NSString *recID in tempRecipes){
+        Recipe *rec = [[Recipe alloc]initWithID:recID];
+        [self.recipes addObject:rec];
+    }
+    
+    for (id<MKAnnotation> recipe in self.recipes) {
+        //NSLog(self.mapView);
+        [self.mapView addAnnotation:recipe];
+    }
     [self startUpdating];
 }
 
@@ -121,55 +133,27 @@
     }
 }
 
-
-- (void)viewDidUnload
+-(void)reloadGlobe
 {
-    [super viewDidUnload];
-    NSLog(@"%@ method called in class %@ on line #%d",NSStringFromSelector(_cmd),[self class],__LINE__);
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-//Checks for
-- (void)viewWillAppear:(BOOL)animated{
-    NSLog(@"%@ method called in class %@ on line #%d",NSStringFromSelector(_cmd),[self class],__LINE__);
+    //Unload annotations
+    for (id<MKAnnotation> recipe in self.recipes) {
+        //NSLog(self.mapView);
+        [self.mapView removeAnnotation:recipe];
+    }
     
-    NSMutableArray *tempRecipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thefavoriteslist"]];
+    NSMutableArray *tempRecipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thecookedlist"]];
     self.recipes = [[NSMutableArray alloc]init];
     for(NSString *recID in tempRecipes){
         Recipe *rec = [[Recipe alloc]initWithID:recID];
         [self.recipes addObject:rec];
     }
     
-    //CHECK IF PARKS WERE CREATED PROPERLY THIS IS IN CAPS IM SORRY
-    for (Recipe *park in self.recipes){
-        NSLog(@"park=%@",park);
-        NSLog(@"Recipe Name:%@", park.recipeName);
-        NSLog(@"Recipe Location:%@", park.location);
-    }
-    
     for (id<MKAnnotation> recipe in self.recipes) {
         //NSLog(self.mapView);
         [self.mapView addAnnotation:recipe];
     }
-    
 }
-- (void)viewWillDisappear:(BOOL)animated{
-    NSLog(@"%@ method called in class %@ on line #%d",NSStringFromSelector(_cmd),[self class],__LINE__);
-    for (id<MKAnnotation> recipe in self.recipes) {
-        //NSLog(self.mapView);
-        [self.mapView removeAnnotation:recipe];
-    }
-    
-}
-- (void)viewDidAppear:(BOOL)animated{
-    NSLog(@"%@ method called in class %@ on line #%d",NSStringFromSelector(_cmd),[self class],__LINE__);
-    
-}
-- (void)viewDidDisappear:(BOOL)animated{
-    NSLog(@"%@ method called in class %@ on line #%d",NSStringFromSelector(_cmd),[self class],__LINE__);
-    
-}
+
 /*
 #pragma mark - Navigation
 

@@ -34,9 +34,9 @@
     
     self.randomPicker.dataSource = self;
     self.randomPicker.delegate = self;
-    self.mealType = @"Breakfast";
-    self.dishType = @"American";
-    self.difficulty = @"Very Easy";
+    self.mealType = @"Main Dishes";
+    self.dishType = @"Asian";
+    self.difficulty = @"Medium";
     
     [self.randomPicker selectRow:2 inComponent:0 animated:YES];
     [self.randomPicker selectRow:2 inComponent:1 animated:YES];
