@@ -171,5 +171,44 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+-(BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self resignFirstResponder];
+    [super viewWillDisappear:animated];
+}
+
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    //Responds to shake event
+    //Sets picker to random value and calls button to grab random recipe
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        int randMeal = arc4random_uniform(3);
+        int randDish = arc4random_uniform(12);
+        int randDiff = arc4random_uniform(4);
+        
+        [self.randomPicker selectRow:randMeal inComponent:0 animated:YES];
+        [self.randomPicker selectRow:randDish inComponent:1 animated:YES];
+        [self.randomPicker selectRow:randDiff inComponent:2 animated:YES];
+        
+        self.mealType = _pickerData[0][randMeal];
+        self.dishType = _pickerData[1][randDish];
+        self.difficulty = _pickerData[2][randMeal];
+        
+        
+        [self.randomButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+
+    }
+}
+
 
 @end

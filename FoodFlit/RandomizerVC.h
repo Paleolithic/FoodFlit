@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *randomPicker;
 @property (nonatomic, strong) IBOutlet UIButton *recipeButton;
+@property (nonatomic, strong) IBOutlet UIButton *randomButton;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (weak, nonatomic) NSString *mealType;
