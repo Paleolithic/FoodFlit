@@ -144,11 +144,15 @@
         //Make table visible
         [self.webView setHidden:YES];
         [self.tableView setHidden:NO];
-        
+       
         //Get and set cells text to nutrition information
         NSDictionary *nutDict = [recipe.recipeNutrition objectAtIndex:indexPath.row];
         NSDictionary *unitDict = [nutDict valueForKey:@"unit"];
         NSString *nutDesc = [nutDict valueForKey:@"description"];
+        if(nutDesc == ( NSString *) [ NSNull null ]){
+            nutDesc = @"Calories";
+        }
+         NSLog(@"Desc: %@", nutDesc);
         NSString *nutVal  = [nutDict valueForKey:@"value"];
         NSString *nutUnit = [unitDict valueForKey:@"abbreviation"];
         NSString *labelText = [NSString stringWithFormat:@"%@: %@ %@", nutDesc, nutVal, nutUnit];
