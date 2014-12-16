@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     //[self ButtonStates];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timelineChange) name:@"cooked" object:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -39,6 +40,12 @@
     
 }
 
+-(void)timelineChange{
+    NSMutableArray *arrayC = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thecookedlist"]];
+    if ([arrayC containsObject:self.recipeID]){
+        self.cooked.selected = YES;
+    }else self.cooked.selected = NO;
+}
 -(IBAction)save:(id)sender{
     NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thebookmarkslist"]];
     if ([array containsObject:self.recipeID]){

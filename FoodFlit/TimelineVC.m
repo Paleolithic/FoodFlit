@@ -42,6 +42,7 @@
 }
 
 -(void)reloadTable{
+    recipes = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thecookedlist"]];
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:false];
 }
 
