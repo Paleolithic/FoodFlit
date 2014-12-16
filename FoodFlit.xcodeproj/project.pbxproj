@@ -39,7 +39,7 @@
 		96BC53071A40A110000A3748 /* cooked_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 96BC53051A40A110000A3748 /* cooked_selected.png */; };
 		96BC53081A40A110000A3748 /* save_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 96BC53061A40A110000A3748 /* save_selected.png */; };
 		96BC530B1A40C060000A3748 /* TimelineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BC530A1A40C060000A3748 /* TimelineVC.m */; };
-		96BC530F1A40DF97000A3748 /* transparent-gradient.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 96BC530E1A40DF97000A3748 /* transparent-gradient.jpeg */; };
+		96BC53111A40E3A8000A3748 /* trans.png in Resources */ = {isa = PBXBuildFile; fileRef = 96BC53101A40E3A8000A3748 /* trans.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +96,7 @@
 		96BC53061A40A110000A3748 /* save_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save_selected.png; sourceTree = "<group>"; };
 		96BC53091A40C060000A3748 /* TimelineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVC.h; sourceTree = "<group>"; };
 		96BC530A1A40C060000A3748 /* TimelineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVC.m; sourceTree = "<group>"; };
-		96BC530E1A40DF97000A3748 /* transparent-gradient.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "transparent-gradient.jpeg"; sourceTree = "<group>"; };
+		96BC53101A40E3A8000A3748 /* trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trans.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +232,7 @@
 		3FC15E541A2F8C6E00AAEAEA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				96BC530E1A40DF97000A3748 /* transparent-gradient.jpeg */,
+				96BC53101A40E3A8000A3748 /* trans.png */,
 				96BC53051A40A110000A3748 /* cooked_selected.png */,
 				96BC53061A40A110000A3748 /* save_selected.png */,
 				962A08961A39178F0011F467 /* heart_selected.png */,
@@ -327,11 +327,11 @@
 				960B80C61A2FBEFD005FB5E9 /* cooked.png in Resources */,
 				960B80C21A2FBD30005FB5E9 /* heart.png in Resources */,
 				960B80C01A2FBD30005FB5E9 /* bookmarked.png in Resources */,
-				96BC530F1A40DF97000A3748 /* transparent-gradient.jpeg in Resources */,
 				962A08971A39178F0011F467 /* heart_selected.png in Resources */,
 				3FAD93641A1C062700560974 /* InfoPlist.strings in Resources */,
 				960B80C11A2FBD30005FB5E9 /* dice.png in Resources */,
 				960B80C81A30269F005FB5E9 /* save.png in Resources */,
+				96BC53111A40E3A8000A3748 /* trans.png in Resources */,
 				3FC15E601A2F95C100AAEAEA /* globe.png in Resources */,
 				960B80C51A2FBEFD005FB5E9 /* timeline.png in Resources */,
 				96BC53081A40A110000A3748 /* save_selected.png in Resources */,

@@ -80,7 +80,7 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Recipe *rec=[[Recipe alloc] initWithID:[recipes objectAtIndex:indexPath.row]];
+    Recipe *rec=[[Recipe alloc] initWithID:[recipes objectAtIndex:indexPath.section]];
     RecipeDetailVC *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Details"];
     detailVC.recipe = rec;
     [self.navigationController pushViewController:detailVC animated:YES];
