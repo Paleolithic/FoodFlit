@@ -204,7 +204,6 @@
         self.dishType = _pickerData[1][randDish];
         self.difficulty = _pickerData[2][randMeal];
         
-        
         [self.randomButton sendActionsForControlEvents:UIControlEventTouchUpInside];
 
     }
