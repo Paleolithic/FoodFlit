@@ -70,16 +70,26 @@
 }
 -(IBAction)cooked:(id)sender{
     NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thecookedlist"]];
+    NSMutableArray *arrayDates = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"cookedDates"]];
     if ([array containsObject:recipe.recipeID]){
+        [arrayDates removeObjectAtIndex:[array indexOfObject:recipe.recipeID]];
         [array removeObject:recipe.recipeID];
         [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thecookedlist"];
+        [[NSUserDefaults standardUserDefaults] setObject:arrayDates forKey:@"cookedDates"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"cooked" object:nil];
         self.cooked.selected = NO;
     }else{
         [array addObject:recipe.recipeID];
+        NSDate *today = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy 'at' HH:mm"];
+        [arrayDates addObject:[dateFormatter stringFromDate:today]];
         [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thecookedlist"];
+        [[NSUserDefaults standardUserDefaults] setObject:arrayDates forKey:@"cookedDates"];
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"cooked" object:nil];
         self.cooked.selected = YES;
+        
     }
     
 }

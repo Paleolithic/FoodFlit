@@ -99,8 +99,9 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    NSMutableArray *arrayDates = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"cookedDates"]];
     
-    return @"Date PlaceHolder";
+    return [arrayDates objectAtIndex:section];
 }
 
 @end
