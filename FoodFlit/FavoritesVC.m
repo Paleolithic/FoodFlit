@@ -7,7 +7,6 @@
 //
 
 #import "FavoritesVC.h"
-#import "Recipe.h"
 @interface FavoritesVC ()
 
 @end
@@ -69,9 +68,10 @@
     }
     
     cell.imgView.image = rec.recipeImage;
+    cell.recipeID = rec.recipeID;
     cell.name.text = rec.recipeName;
     cell.info.text = [NSString stringWithFormat:@"%@ ∫ %@ ∫ %@",rec.recipeMeal, rec.recipeDish, rec.recipeDifficulty];
-        
+    [cell ButtonStates];
     return cell;
 }
 
@@ -95,18 +95,6 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return YES if you want the specified item to be editable.
     return YES;
-}
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.recipes removeObjectAtIndex:indexPath.row];
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:recipes forKey: @"favoriteslist"];
-        [defaults synchronize];
-        [tableView reloadData];
-    }
 }
 
 -(IBAction)switchLists:(id)segment{

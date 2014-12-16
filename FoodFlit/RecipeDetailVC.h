@@ -20,8 +20,10 @@
 @property (nonatomic, strong)IBOutlet UISegmentedControl *segment;
 @property (nonatomic, strong)IBOutlet UIActivityIndicatorView *indicator;
 
--(IBAction)favorite:(id)sender;
--(IBAction)save:(id)sender;
--(IBAction)cooked:(id)sender;
+@property (nonatomic, strong)IBOutlet UIButton *save;
+@property (nonatomic, strong)IBOutlet UIButton *heart;
+@property (nonatomic, strong)IBOutlet UIButton *cooked;
+
+
 -(IBAction)valueChanged:(UISegmentedControl *)segment;
 @end

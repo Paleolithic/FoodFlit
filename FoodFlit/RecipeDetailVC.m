@@ -27,7 +27,7 @@
     name.text = recipe.recipeName;
     info.text = [NSString stringWithFormat:@"%@ ∫ %@ ∫ %@",recipe.recipeMeal, recipe.recipeDish, recipe.recipeDifficulty];
     pic.image = recipe.recipeImage;
-    
+    [self ButtonStates];
     // Do any additional setup after loading the view.
 }
 
@@ -36,36 +36,68 @@
     // Dispose of any resources that can be recreated.
 }
 
-//Add to "thefavoriteslist" userDefaults
--(IBAction)favorite:(id)sender
-{
-    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thefavoriteslist"]];
-    if (![array containsObject:recipe.recipeID]) {
-        [array addObject:recipe.recipeID];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thefavoriteslist"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"faveAdded" object:nil];
-    }
+-(void)ButtonStates{
+    NSMutableArray *arrayB = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thebookmarkslist"]];
+    if ([arrayB containsObject:recipe.recipeID]){
+        self.save.selected = YES;
+    }else self.save.selected = NO;
+    
+    NSMutableArray *arrayF = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thefavoriteslist"]];
+    if ([arrayF containsObject:recipe.recipeID]){
+        self.heart.selected = YES;
+    }else self.heart.selected = NO;
+    NSMutableArray *arrayC = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thecookedlist"]];
+    if ([arrayC containsObject:recipe.recipeID]){
+        self.cooked.selected = YES;
+    }else self.cooked.selected = NO;
+    
+    
 }
 
-//Add to "thebookmarkslist" userDefaults
 -(IBAction)save:(id)sender{
     NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thebookmarkslist"]];
-    if (![array containsObject:recipe.recipeID]) {
+    if ([array containsObject:recipe.recipeID]){
+        [array removeObject:recipe.recipeID];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thebookmarkslist"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"bookmarked" object:nil];
+        self.save.selected = NO;
+    }else{
         [array addObject:recipe.recipeID];
         [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thebookmarkslist"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"bookmarked" object:nil];
+        self.save.selected = YES;
     }
 }
-
-//Add to timeline
 -(IBAction)cooked:(id)sender{
     NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thecookedlist"]];
-    if (![array containsObject:recipe.recipeID]) {
+    if ([array containsObject:recipe.recipeID]){
+        [array removeObject:recipe.recipeID];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thecookedlist"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"cooked" object:nil];
+        self.cooked.selected = NO;
+    }else{
         [array addObject:recipe.recipeID];
         [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thecookedlist"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"cooked" object:nil];
+        self.cooked.selected = YES;
+    }
+    
+}
+-(IBAction)heart:(id)sender{
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"thefavoriteslist"]];
+    if ([array containsObject:recipe.recipeID]){
+        [array removeObject:recipe.recipeID];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thefavoriteslist"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"faveAdded" object:nil];
+        self.heart.selected = NO;
+    }else{
+        [array addObject:recipe.recipeID];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"thefavoriteslist"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"faveAdded" object:nil];
+        self.heart.selected = YES;
     }
 }
+
 - (IBAction)valueChanged:(UISegmentedControl *)seg {
     [self.tableView reloadData];
 }

@@ -36,9 +36,9 @@
 		960B80CA1A302E59005FB5E9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 960B80C91A302E59005FB5E9 /* MapKit.framework */; };
 		962A08971A39178F0011F467 /* heart_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 962A08961A39178F0011F467 /* heart_selected.png */; };
 		962A089C1A3930960011F467 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 962A089B1A3930960011F467 /* CustomCell.m */; };
-		962A08A11A39747E0011F467 /* TimelineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 962A08A01A39747E0011F467 /* TimelineVC.m */; };
 		96BC53071A40A110000A3748 /* cooked_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 96BC53051A40A110000A3748 /* cooked_selected.png */; };
 		96BC53081A40A110000A3748 /* save_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 96BC53061A40A110000A3748 /* save_selected.png */; };
+		96BC530B1A40C060000A3748 /* TimelineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BC530A1A40C060000A3748 /* TimelineVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,10 +91,10 @@
 		962A08961A39178F0011F467 /* heart_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_selected.png; sourceTree = "<group>"; };
 		962A089A1A3930960011F467 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		962A089B1A3930960011F467 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
-		962A089F1A39747E0011F467 /* TimelineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVC.h; sourceTree = "<group>"; };
-		962A08A01A39747E0011F467 /* TimelineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVC.m; sourceTree = "<group>"; };
 		96BC53051A40A110000A3748 /* cooked_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cooked_selected.png; sourceTree = "<group>"; };
 		96BC53061A40A110000A3748 /* save_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save_selected.png; sourceTree = "<group>"; };
+		96BC53091A40C060000A3748 /* TimelineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVC.h; sourceTree = "<group>"; };
+		96BC530A1A40C060000A3748 /* TimelineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +134,8 @@
 				960B80BB1A2FACE0005FB5E9 /* RecipeDetailVC.m */,
 				3F20E8E31A37A168006EF4B5 /* GlobeVC.h */,
 				3F20E8E41A37A168006EF4B5 /* GlobeVC.m */,
-				962A089F1A39747E0011F467 /* TimelineVC.h */,
-				962A08A01A39747E0011F467 /* TimelineVC.m */,
+				96BC53091A40C060000A3748 /* TimelineVC.h */,
+				96BC530A1A40C060000A3748 /* TimelineVC.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -351,7 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				962A08A11A39747E0011F467 /* TimelineVC.m in Sources */,
+				96BC530B1A40C060000A3748 /* TimelineVC.m in Sources */,
 				3F20E8E51A37A168006EF4B5 /* GlobeVC.m in Sources */,
 				3F593D931A2E65F5002E7B7E /* Recipe.m in Sources */,
 				962A089C1A3930960011F467 /* CustomCell.m in Sources */,

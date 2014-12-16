@@ -21,6 +21,39 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkN-vd-jeZ">
                                             <rect key="frame" x="0.0" y="-1" width="320" height="159"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nm8-Fn-zmv">
+                                            <rect key="frame" x="246" y="88" width="27" height="27"/>
+                                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                            <state key="normal" image="save.png"/>
+                                            <state key="selected" image="save_selected.png"/>
+                                            <connections>
+                                                <action selector="save:" destination="Xjx-bm-92N" eventType="touchUpInside" id="Mz5-i7-9tt"/>
+                                                <action selector="save:" destination="6P5-xh-RqD" eventType="touchUpInside" id="xan-U9-gMl"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-gz-EpM">
+                                            <rect key="frame" x="285" y="88" width="27" height="27"/>
+                                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                            <state key="normal" image="cooked.png"/>
+                                            <state key="selected" image="cooked_selected.png"/>
+                                            <connections>
+                                                <action selector="cooked:" destination="6P5-xh-RqD" eventType="touchUpInside" id="tqw-j0-gae"/>
+                                                <action selector="cooked:" destination="Xjx-bm-92N" eventType="touchUpInside" id="xBp-ku-Iw5"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3P-mU-em3">
+                                            <rect key="frame" x="205" y="88" width="27" height="27"/>
+                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <size key="titleShadowOffset" width="5" height="4"/>
+                                            <state key="normal" image="heart.png"/>
+                                            <state key="selected" image="heart_selected.png"/>
+                                            <connections>
+                                                <action selector="heart:" destination="6P5-xh-RqD" eventType="touchUpInside" id="6Wo-sv-hxI"/>
+                                                <action selector="heart:" destination="Xjx-bm-92N" eventType="touchUpInside" id="MEY-UQ-A8h"/>
+                                            </connections>
+                                        </button>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zj-Wb-dDA">
                                             <rect key="frame" x="0.0" y="119" width="320" height="42"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2Gw-Ej-g2R">
@@ -46,9 +79,12 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="cooked" destination="Ioa-gz-EpM" id="ocI-tK-Cxb"/>
+                                    <outlet property="heart" destination="v3P-mU-em3" id="zur-CJ-SyE"/>
                                     <outlet property="imgView" destination="zkN-vd-jeZ" id="j3j-a3-xd2"/>
                                     <outlet property="info" destination="l2o-XS-SCc" id="EKj-Kg-uPy"/>
                                     <outlet property="name" destination="3xS-hS-wg1" id="1qR-Wa-rXw"/>
+                                    <outlet property="save" destination="nm8-Fn-zmv" id="vDB-j9-0jR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -117,6 +153,36 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="180" translatesAutoresizingMaskIntoConstraints="NO" id="zsr-Ul-sOR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp5-bc-TUr">
+                                <rect key="frame" x="248" y="89" width="27" height="27"/>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" image="save.png"/>
+                                <state key="selected" image="save_selected.png"/>
+                                <connections>
+                                    <action selector="save:" destination="6P5-xh-RqD" eventType="touchUpInside" id="stz-Df-0cV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nP-kd-16r">
+                                <rect key="frame" x="287" y="89" width="27" height="27"/>
+                                <color key="tintColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" image="cooked.png"/>
+                                <state key="selected" image="cooked_selected.png"/>
+                                <connections>
+                                    <action selector="cooked:" destination="6P5-xh-RqD" eventType="touchUpInside" id="mmH-8K-T0Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4N-E5-FU3">
+                                <rect key="frame" x="207" y="89" width="27" height="27"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="5" height="4"/>
+                                <state key="normal" image="heart.png"/>
+                                <state key="selected" image="heart_selected.png"/>
+                                <connections>
+                                    <action selector="heart:" destination="6P5-xh-RqD" eventType="touchUpInside" id="Pdh-PN-LYS"/>
+                                </connections>
+                            </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Bs6-2t-zyY">
                                 <rect key="frame" x="0.0" y="120" width="320" height="80"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iDe-C6-sdo">
@@ -137,7 +203,7 @@
                                                 <segment title="Recipe"/>
                                             </segments>
                                             <connections>
-                                                <action selector="valueChanged:" destination="6P5-xh-RqD" eventType="valueChanged" id="Js2-b0-Ngb"/>
+                                                <action selector="valueChanged:" destination="6P5-xh-RqD" eventType="valueChanged" id="9ng-Y2-TAp"/>
                                             </connections>
                                         </segmentedControl>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWM-os-eSi">
@@ -150,18 +216,8 @@
                                         </label>
                                     </subviews>
                                 </view>
-                                <blurEffect style="extraLight"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp5-bc-TUr">
-                                <rect key="frame" x="257" y="91" width="27" height="27"/>
-                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" image="save.png"/>
-                                <state key="selected" image="save_selected.png"/>
-                                <connections>
-                                    <action selector="save:" destination="6P5-xh-RqD" eventType="touchUpInside" id="zKn-Oe-WBR"/>
-                                </connections>
-                            </button>
                             <webView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MrJ-dZ-pWt">
                                 <rect key="frame" x="0.0" y="199" width="320" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -183,35 +239,18 @@
                                     <outlet property="delegate" destination="6P5-xh-RqD" id="ljq-ld-qoi"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4N-E5-FU3">
-                                <rect key="frame" x="224" y="91" width="27" height="27"/>
-                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="titleShadowOffset" width="5" height="4"/>
-                                <state key="normal" image="heart.png"/>
-                                <state key="selected" image="heart_selected.png"/>
-                                <connections>
-                                    <action selector="favorite:" destination="6P5-xh-RqD" eventType="touchUpInside" id="J91-HA-8wA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nP-kd-16r">
-                                <rect key="frame" x="288" y="91" width="27" height="27"/>
-                                <color key="tintColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" image="cooked.png"/>
-                                <state key="selected" image="save_selected.png"/>
-                                <connections>
-                                    <action selector="cooked:" destination="6P5-xh-RqD" eventType="touchUpInside" id="eap-sZ-JHv"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="8cv-0m-W3I"/>
                     <connections>
+                        <outlet property="cooked" destination="5nP-kd-16r" id="sDK-U5-tmm"/>
+                        <outlet property="heart" destination="n4N-E5-FU3" id="luX-q4-31B"/>
                         <outlet property="indicator" destination="yHa-Gu-X2Y" id="tRu-5J-LF5"/>
                         <outlet property="info" destination="qjz-Nr-jHd" id="05O-ia-gRu"/>
                         <outlet property="name" destination="rWM-os-eSi" id="kS2-4h-6Mn"/>
                         <outlet property="pic" destination="zsr-Ul-sOR" id="YI5-fn-cGI"/>
+                        <outlet property="save" destination="kp5-bc-TUr" id="MOg-de-Vf9"/>
                         <outlet property="segment" destination="qyK-3O-SGK" id="liU-pD-9Cb"/>
                         <outlet property="tableView" destination="usg-CF-04k" id="zHD-Z1-mo0"/>
                         <outlet property="webView" destination="MrJ-dZ-pWt" id="0Ea-hy-wZ6"/>
@@ -242,13 +281,13 @@
         <!--Timeline-->
         <scene sceneID="uph-xR-Ckn">
             <objects>
-                <tableViewController id="n2H-6K-F0y" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="160" sectionHeaderHeight="10" sectionFooterHeight="10" id="vgW-zS-8Xq">
+                <tableViewController id="n2H-6K-F0y" customClass="TimelineVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="320" sectionHeaderHeight="10" sectionFooterHeight="10" id="vgW-zS-8Xq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TimelineCell" id="3Dx-Nn-EGg" customClass="CustomCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TimelineCell" rowHeight="320" id="3Dx-Nn-EGg" customClass="CustomCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Dx-Nn-EGg" id="WhB-au-4eo">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -256,6 +295,39 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwI-Dk-gea">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaa-uC-5V5">
+                                            <rect key="frame" x="246" y="86" width="27" height="27"/>
+                                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                            <state key="normal" image="save.png"/>
+                                            <state key="selected" image="save_selected.png"/>
+                                            <connections>
+                                                <action selector="save:" destination="3Dx-Nn-EGg" eventType="touchUpInside" id="4kR-6T-PYx"/>
+                                                <action selector="save:" destination="6P5-xh-RqD" eventType="touchUpInside" id="tGh-fH-wIp"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9k-3J-Bx6">
+                                            <rect key="frame" x="285" y="86" width="27" height="27"/>
+                                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                            <state key="normal" image="cooked.png"/>
+                                            <state key="selected" image="cooked_selected.png"/>
+                                            <connections>
+                                                <action selector="cooked:" destination="6P5-xh-RqD" eventType="touchUpInside" id="9cN-RT-7NT"/>
+                                                <action selector="cooked:" destination="3Dx-Nn-EGg" eventType="touchUpInside" id="GwN-dz-dpO"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v46-0u-NaR">
+                                            <rect key="frame" x="205" y="86" width="27" height="27"/>
+                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <size key="titleShadowOffset" width="5" height="4"/>
+                                            <state key="normal" image="heart.png"/>
+                                            <state key="selected" image="heart_selected.png"/>
+                                            <connections>
+                                                <action selector="heart:" destination="6P5-xh-RqD" eventType="touchUpInside" id="Pw4-qh-Jir"/>
+                                                <action selector="heart:" destination="3Dx-Nn-EGg" eventType="touchUpInside" id="bOp-g6-how"/>
+                                            </connections>
+                                        </button>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooN-He-pvI">
                                             <rect key="frame" x="0.0" y="118" width="320" height="42"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9wh-Oi-bLM">
@@ -278,42 +350,38 @@
                                             </view>
                                             <blurEffect style="light"/>
                                         </visualEffectView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="OMG This is the Best" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCV-xu-PfG">
+                                            <rect key="frame" x="8" y="161" width="304" height="119"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uh5-Ex-BHT">
+                                            <rect key="frame" x="243" y="285" width="68" height="30"/>
+                                            <state key="normal" title="Comment">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="comment:" destination="3Dx-Nn-EGg" eventType="touchUpInside" id="VkD-UM-bst"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TeN-99-pef">
+                                            <rect key="frame" x="8" y="285" width="227" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes"/>
+                                        </textField>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="cooked" destination="k9k-3J-Bx6" id="jQf-Dq-RNq"/>
+                                    <outlet property="heart" destination="v46-0u-NaR" id="KeU-3b-QaY"/>
                                     <outlet property="imgView" destination="lwI-Dk-gea" id="rAD-kl-fQL"/>
                                     <outlet property="info" destination="o7n-vL-Lkk" id="V5h-y9-KR0"/>
                                     <outlet property="name" destination="qCL-6u-W4Y" id="ZPi-jS-JjP"/>
+                                    <outlet property="save" destination="iaa-uC-5V5" id="3Dl-gI-uBD"/>
+                                    <outlet property="textField" destination="TeN-99-pef" id="g3R-sF-Pid"/>
+                                    <outlet property="textView" destination="hCV-xu-PfG" id="1yj-Xc-NbI"/>
                                 </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="90" id="tCF-Zk-eiT">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tCF-Zk-eiT" id="y2E-dC-s4I">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62b-xA-afx">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nYE-H0-Hg8">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RW-bR-sZ4">
-                                                        <rect key="frame" x="247" y="54" width="68" height="30"/>
-                                                        <state key="normal" title="Comment">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                    </button>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ms7-ah-UkY">
-                                                        <rect key="frame" x="8" y="57" width="232" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                            </view>
-                                            <blurEffect style="light"/>
-                                        </visualEffectView>
-                                    </subviews>
-                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -438,7 +506,7 @@
                                     <action selector="randomizeRecipe:" destination="0vG-ue-Fbp" eventType="touchUpInside" id="dt2-FK-VRP"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-Ux-3F9">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-Ux-3F9">
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soX-i6-BHd">
@@ -509,6 +577,7 @@
     </scenes>
     <resources>
         <image name="cooked.png" width="25" height="25"/>
+        <image name="cooked_selected.png" width="25" height="25"/>
         <image name="dice.png" width="30" height="30"/>
         <image name="globe.png" width="30" height="30"/>
         <image name="heart.png" width="25" height="22"/>
