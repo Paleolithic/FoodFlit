@@ -94,48 +94,53 @@
         recipeDifficulty = @"Very Hard";
     }
     
-
+    float low_bound = -2.5;
+    float high_bound = 2.5;
+    
+    float offX = (((float)arc4random()/0x100000000)*(high_bound-low_bound)+low_bound);
+    float offY = (((float)arc4random()/0x100000000)*(high_bound-low_bound)+low_bound);
+    
     
     //Coordinates set based on recipe dish
     CLLocationCoordinate2D coord;
     if([self.recipeDish isEqual: @"American"] || [self.recipeDish isEqual: @"Barbecue"]){
-        coord = CLLocationCoordinate2DMake(37.090240, -95.712891);
+        coord = CLLocationCoordinate2DMake(37.090240 + offX, -95.712891 + offY);
     }
     else if([self.recipeDish isEqual: @"Italian"]){
-        coord = CLLocationCoordinate2DMake(41.871940, 12.567380);
+        coord = CLLocationCoordinate2DMake(41.871940 + offX, 12.567380 + offY);
     }
     else if([self.recipeDish isEqual: @"Asian"]){
-        coord = CLLocationCoordinate2DMake(34.047863, 100.619655);
+        coord = CLLocationCoordinate2DMake(34.047863 + offX, 100.619655 + offY);
     }
     else if([self.recipeDish isEqual: @"French"]){
-        coord = CLLocationCoordinate2DMake(46.227638, 2.213749);
+        coord = CLLocationCoordinate2DMake(46.227638 + offX, 2.213749 + offY);
     }
     else if([self.recipeDish isEqual: @"Chinese"]){
-        coord = CLLocationCoordinate2DMake(9.648579, 123.855566);
+        coord = CLLocationCoordinate2DMake(9.648579 + offX, 123.855566 + offY);
     }
     else if([self.recipeDish isEqual: @"Greek"]){
-        coord = CLLocationCoordinate2DMake(39.074208, 21.824312);
+        coord = CLLocationCoordinate2DMake(39.074208 + offX, 21.824312 + offY);
     }
     else if([self.recipeDish isEqual: @"German"]){
-        coord = CLLocationCoordinate2DMake(51.165691, 10.451526);
+        coord = CLLocationCoordinate2DMake(51.165691 + offX, 10.451526 + offY);
     }
     else if([self.recipeDish isEqual: @"Thai"]){
-        coord = CLLocationCoordinate2DMake(15.870032, 100.992541);
+        coord = CLLocationCoordinate2DMake(15.870032 + offX, 100.992541 + offY);
     }
     else if([self.recipeDish isEqual: @"Japanese"]){
-        coord = CLLocationCoordinate2DMake(36.204824, 138.252924);
+        coord = CLLocationCoordinate2DMake(36.204824 + offX, 138.252924 + offY);
     }
     else if([self.recipeDish isEqual: @"Spanish"]){
-        coord = CLLocationCoordinate2DMake(46.194796, -82.342278);
+        coord = CLLocationCoordinate2DMake(46.194796 + offX, -82.342278 + offY);
     }
     else if([self.recipeDish isEqual: @"Mediterranean"]){
-        coord = CLLocationCoordinate2DMake(34.553128, 18.048011);
+        coord = CLLocationCoordinate2DMake(34.553128 + offX, 18.048011 + offY);
     }
     else if([self.recipeDish isEqual: @"Mexican"]){
-        coord = CLLocationCoordinate2DMake(23.634501, -102.552784);
+        coord = CLLocationCoordinate2DMake(23.634501 + offX, -102.552784 + offY);
     }
     else if([self.recipeDish isEqual: @"Indian"]){
-        coord = CLLocationCoordinate2DMake(20.593684, 78.96288);
+        coord = CLLocationCoordinate2DMake(20.593684 + offX, 78.96288 + offY);
     }
     
     self.location = [[CLLocation alloc]initWithCoordinate:coord
